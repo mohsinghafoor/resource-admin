@@ -1,0 +1,94 @@
+{
+  "data": {
+    "me": {
+      "id": "ckx54s4bx00824tofskxrdr6s",
+      "role": "USER",
+      "firstName": "nate",
+      "lastName": "f",
+      "email": "nate@resourcenetwork.co",
+      "isEmailValidated": false,
+      "type": null,
+      "business": {
+        "id": "ckx54sgz201034tofb1gsuvs7",
+        "name": "nate@resourcenetwork.co",
+        "tagline": "nate dev",
+        "description": "dev",
+        "address": "nate fur",
+        "logoUrl": "https://res.cloudinary.com/resource-network/image/upload/v1639427551/uploads/zmhlxrvdgbcaa9zvh3n1.jpg",
+        "coverUrl": "https://res.cloudinary.com/resource-network/image/upload/v1639427551/uploads/hfuuysumlsabkll1slwb.jpg",
+        "externalLinks": [],
+        "isDisabled": false,
+        "phoneNumber": "+15099999999",
+        "approved": false,
+        "handle": "nate-fur",
+        "createdAt": "2021-12-13T20:31:16.718Z",
+        "email": "",
+        "ownerId": "ckx54s4bx00824tofskxrdr6s",
+        "kmsTaxId": "helloworld",
+        "settings": {
+          "id": "ckx54sgz201064tofwv1tdmch",
+          "businessId": "ckx54sgz201034tofb1gsuvs7",
+          "emailChat": true,
+          "emailMarketing": true,
+          "emailNotifications": true,
+          "emailProductUpdates": true,
+          "isEmailValidated": true,
+          "isSmsValidated": false,
+          "languages": [],
+          "notificationEmail": "",
+          "notificationPhone": "+15099999999",
+          "smsChat": false,
+          "smsNotifications": false,
+          "smsTransaction": false,
+          "timezone": null,
+          "showSmsOptIn": false,
+          "__typename": "BusinessSettings"
+        },
+        "wallet": {
+          "id": "ckx54sgz201044tofe0fgenri",
+          "isActive": true,
+          "multiSigAddress": "0x79bf311bd93b584e8bf413b5d168311acc8d0c8b",
+          "creditLimit": "600.00",
+          "__typename": "Wallet"
+        },
+        "__typename": "Business",
+        "listings": [
+          {
+            "id": "ckx7vz1ep16194toxed0u5ut7",
+            "createdAt": "2021-12-15T18:47:45.121Z",
+            "updatedAt": "2021-12-15T18:48:57.260Z",
+            "cost": "3.99",
+            "address": "Santa Ana Zoo, East Chestnut Avenue, Santa Ana, CA, USA",
+            "imageUrl": "https://res.cloudinary.com/resource-network/image/upload/v1639594134/uploads/zemzdz2yscenpdyby5i6.jpg",
+            "videoUrl": null,
+            "description": "<p>Testing the creation of a listing</p>",
+            "title": "Test Listing #1",
+            "businessId": "ckx54sgz201034tofb1gsuvs7",
+            "isLocal": true,
+            "isVirtual": true,
+            "isDeliverable": true,
+            "deliveryNotes": "Please confirm by messaging me before sending!",
+            "availability": "",
+            "minPrice": "0.00",
+            "maxPrice": "0.00",
+            "calendarLink": "",
+            "type": "PRODUCT",
+            "categoryId": "ckx54l94x3288m5p28t127gof",
+            "tags": ["fried", "pan", "eggs"],
+            "isDisabled": false,
+            "category": {
+              "id": "ckx54l94x3288m5p28t127gof",
+              "name": "Kitchen Goods",
+              "icon": "sink",
+              "__typename": "ListingCategory"
+            },
+            "quantity": null,
+            "__typename": "Listing"
+          }
+        ]
+      },
+      "ambassador": null,
+      "__typename": "User"
+    }
+  }
+}

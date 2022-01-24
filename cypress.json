@@ -1,0 +1,22 @@
+{
+  "baseUrl": "https://staging.resourcenetwork.co/",
+  "defaultCommandTimeout": 10000,
+  "chromeWebSecurity": false,
+  "pageLoadTimeout": 110000,
+  "video": false,
+  "viewportWidth": 1920,
+  "viewportHeight": 1080,
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+    "reporterEnabled": "mochawesome",
+    "mochawesomeReporterOptions": {
+      "reportDir": "cypress/reports/mocha",
+      "quite": true,
+      "overwrite": true,
+      "html": true,
+      "json": false,
+      "video": true
+    }
+  },
+  "testFiles": ["e2e/smoke/*.ts"]
+}

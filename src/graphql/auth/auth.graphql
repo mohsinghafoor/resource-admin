@@ -1,0 +1,97 @@
+mutation registerUser($data: UserCreateInput!) {
+  registerUser(data: $data) {
+    authToken
+    user {
+      id
+      role
+      firstName
+      lastName
+      email
+    }
+  }
+}
+
+mutation loginUser($email: String!, $password: String!) {
+  loginUser(email: $email, password: $password) {
+    authToken
+    user {
+      id
+      role
+      firstName
+      lastName
+      email
+    }
+  }
+}
+
+mutation requestReset($email: String!) {
+  requestReset(email: $email)
+}
+
+mutation sendWelcomeEmail($email: String!) {
+  sendWelcomeEmail(email: $email)
+}
+
+mutation acceptInvite($data: AcceptInviteInput) {
+  acceptInvite(data: $data) {
+    authToken
+    user {
+      id
+    }
+  }
+}
+
+mutation resetPassword(
+  $email: String!
+  $password: String!
+  $confirmPassword: String!
+  $validateEmailToken: String!
+) {
+  resetPassword(
+    email: $email
+    password: $password
+    confirmPassword: $confirmPassword
+    validateEmailToken: $validateEmailToken
+  ) {
+    authToken
+    user {
+      id
+    }
+  }
+}
+
+mutation resetPasswordWithGuardian(
+  $email: String!
+  $newClientAddress: String!
+  $password: String!
+  $transactionId: String!
+) {
+  resetPasswordWithGuardian(
+    email: $email
+    newClientAddress: $newClientAddress
+    password: $password
+    transactionId: $transactionId
+  ) {
+    authToken
+    user {
+      id
+      business {
+        wallet {
+          id
+        }
+      }
+    }
+  }
+}
+
+mutation verifyOTP($email: String!, $otp: String!) {
+  verifyOTP(email: $email, otp: $otp)
+}
+
+mutation resetOTP($email: String!) {
+  resetOTP(email: $email)
+}
+
+query isEmailUnique($email: String!) {
+  isEmailUnique(email: $email)
+}

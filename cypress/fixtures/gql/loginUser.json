@@ -1,0 +1,12 @@
+{
+  "authToken": "eyJhbGciOiJFZERTQSJ9.eyJpZCI6ImNreTRudjZ2aTAzNTE3OHAyNW51cWY3dWMiLCJpYXQiOjE2NDE1NzYzMjksImV4cCI6MTk1NzE1MjMyOX0.URSTq4Q2ae05_qxPAt8JAdCrDTUDUtUfiaBkmb-otoW7eaG3CIVQ4t5UiTDf7bgLJJB6Llht1xdHVYC3JFjWBQ",
+  "user": {
+    "id": "ckxte7y1d0002jwp26zx478u7",
+    "role": "USER",
+    "firstName": "test",
+    "lastName": "user",
+    "email": "user1@resourcenetwork.co",
+    "__typename": "User"
+  },
+  "__typename": "AuthPayload"
+}

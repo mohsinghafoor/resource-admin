@@ -1,52 +1,64 @@
-import { Box, BoxProps, Heading, VStack } from "@chakra-ui/layout"
-import React from "react"
+import { HeadingProps, BoxProps, Heading, Stack } from "@chakra-ui/layout"
 import CloudinaryImage from "../../../../components/CloudinaryImage"
 import { Catalog } from "../../../../generated/graphql"
 import SearchBar from "./SearchBar"
 import coverImage from "../../assets/coverbg.jpg"
-
+import HeaderButtons from "./HeaderButtons"
+import { headingStyle } from "./foundations"
+import EditTitle from "./EditTitle"
+import { useState } from "react"
 interface Props extends BoxProps {
   catalog: Catalog
 }
 
 const CatalogCover = ({ ...rest }: any) => {
+  const [isEdit, setIsEdit] = useState(false)
+  const [isTitle, setIsTitle] = useState(true)
+  const [inputValue, setInputValue] = useState("Buy and sell with credit")
+  const handleEdit = () => {
+    setIsEdit(true)
+    setIsTitle(false)
+  }
   return (
-    <Box {...coverStyles} {...rest} position="relative" mb="500">
-      <CloudinaryImage
-        {...coverStyles}
-        zIndex={-2}
-        quality="good"
-        src={coverImage}
-        filter="brightness(50%)"
-      />
-      <VStack
-        p={4}
-        w="full"
-        position="absolute"
-        zIndex={1}
-        spacing={6}
-        justify="center"
-        height={height}
-      >
-        <Heading color="white" size="title" textAlign="center">
-          Buy and sell with credit.
-        </Heading>
-        <SearchBar />
-      </VStack>
-    </Box>
+    <Stack {...coverStyles}>
+      <Stack h="150px" mt="130px">
+        {isTitle && (
+          <Heading className="heading" {...headingStyle} mt="60px" onClick={handleEdit}>
+            {inputValue}
+          </Heading>
+        )}
+
+        {isEdit && (
+          <EditTitle
+            setIsTitle={setIsTitle}
+            isTitle={isTitle}
+            setIsEdit={setIsEdit}
+            setInputValue={setInputValue}
+          />
+        )}
+      </Stack>
+      <SearchBar />
+      <Stack h="200px" justifyContent="flex-end">
+        <HeaderButtons />
+      </Stack>
+    </Stack>
   )
 }
 
 const height = {
   base: "220px",
-  md: "450px",
+  md: "600px",
 }
 
-const coverStyles: any = {
+const coverStyles: BoxProps = {
   height,
-  width: "full",
+  bgImg: coverImage,
+  backgroundSize: "100%",
+  width: "1320px",
   objectFit: "cover",
-  position: "absolute",
+  filter: "brightness(90%)",
+  justifyContent: "center",
+  // border: "12px solid transparent",
 }
 
 export default CatalogCover

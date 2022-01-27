@@ -5,7 +5,9 @@ import CloudinaryImage from "../../../../components/CloudinaryImage"
 import bg5 from "../../assets/bg5.png"
 import bg6 from "../../assets/bg6.png"
 import bg7 from "../../assets/bg7.png"
+import "./style.css"
 import { baseThumbnailStyles } from "./foundations"
+import { Link } from "react-router-dom"
 const Data = [
   { bgImg: bg5, text: "Finance" },
   { bgImg: bg6, text: "Holistic Healing" },
@@ -32,17 +34,20 @@ const ThreeWideList = ({ ...rest }: any) => {
 const Thumbnail = (props) => {
   const { bgImg, text } = props
   return (
-    <Flex direction="column" w="415px">
+    <Flex direction="column" w="415px" className="cursor" justifyContent="flex-end">
       <Image
         src={bgImg}
-        border="5px solid transparent"
+        border="12px solid transparent"
         borderRadius="22px"
         alt=""
-        _hover={{ border: "5px solid #699dff" }}
+        _hover={{ border: "12px solid #699dff" }}
       />
       <Text fontSize="28px" fontWeight="600" color="#333333" mt="5" ml="2">
         {text}
       </Text>
+      <Link to="/admin" className="link" style={{ width: 415, marginBottom: 70 }}>
+        Edit List
+      </Link>
     </Flex>
   )
 }

@@ -1,21 +1,32 @@
 import { SearchIcon } from "@chakra-ui/icons"
 import { BoxProps } from "@chakra-ui/layout"
 import { ButtonProps, Input, InputGroup, InputRightElement, Stack } from "@chakra-ui/react"
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 import { useHistory } from "react-router"
+import { boolean } from "yup/lib/locale"
 import Button from "../../../../components/Button"
 import { textStyles } from "../../../../theme/textStyles"
+import SearchModal from "./EditTitle"
 
-const SearchBar = ({ ...rest }: BoxProps) => {
+type SearchBarProps = {
+  isFooter?: boolean
+}
+type props = SearchBarProps | BoxProps
+
+const SearchBar = ({ ...rest }: props) => {
   const inputRef = useRef<HTMLInputElement>(null)
   const history = useHistory()
-
+  console.log()
   const navigate = (searchText?: string) =>
     history.push("/marketplace/listings", { searchText, search: "?page=1" })
 
   return (
-    <Stack spacing={{ base: 2, md: 4 }} direction={{ base: "column", md: "row" }}>
-      <InputGroup>
+    <Stack
+      spacing={{ base: 2, md: 4 }}
+      alignSelf="center"
+      direction={{ base: "column", md: "row" }}
+    >
+      <InputGroup w={{ md: "512px", base: "220px" }}>
         <InputRightElement>
           <SearchIcon color="white" />
         </InputRightElement>

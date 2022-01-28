@@ -1,17 +1,12 @@
 import { Box, Center, Flex, Heading, Stack, Text } from "@chakra-ui/react"
 import { GraphQLError } from "graphql"
-import React, { useCallback, useEffect, useState } from "react"
-// import { useHistory } from "react-router-dom"
+import { useCallback, useEffect, useState } from "react"
 import { useSearchParam } from "react-use"
 import { AuthPayload, useAcceptInviteMutation } from "../../generated/graphql"
 import { createAnalyticsTrack } from "../../services/analytics"
 import { useUpdateLoginState } from "../../services/auth/utils/useUpdateLoginState"
-// import { useGetMe } from "../../store/useGetMe"
 import { InviteForm } from "./components/InviteForm"
-
 export const InvitePage = () => {
-  // const { me } = useGetMe()
-  // const history = useHistory()
   const code = useSearchParam("code")
   const email = new URL(window.location.href).searchParams.get("email")
   const trackInvalidInviteByAmbassador = createAnalyticsTrack("client:ambassador_invalid_invite")

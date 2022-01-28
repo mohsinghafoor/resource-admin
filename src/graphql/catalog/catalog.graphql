@@ -1,0 +1,20 @@
+query findFirstCatalog($where: CatalogWhereInput!) {
+  findFirstCatalog(where: $where) {
+    coverTitle
+    coverImage
+    footerTitle
+    footerImage
+    lists {
+      id
+      title
+      coverImage
+      icon
+      sublists {
+        id
+        title
+        coverImage
+        icon
+      }
+    }
+  }
+}

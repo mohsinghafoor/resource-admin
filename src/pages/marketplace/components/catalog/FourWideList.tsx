@@ -1,14 +1,13 @@
-import { Center, AspectRatio, Box, Heading, HStack, VStack, Flex } from "@chakra-ui/layout"
+import { Center, AspectRatio, Box, Heading, HStack, VStack } from "@chakra-ui/layout"
 import React from "react"
 import { FaCalculator, FaMountain, FaPalette, FaUserTie } from "react-icons/fa"
 import bg1 from "../../assets/bg1.png"
 import bg2 from "../../assets/bg2.png"
 import bg3 from "../../assets/bg3.png"
 import "./style.css"
-import { baseThumbnailStyles } from "./foundations"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import CloudinaryImage from "../../../../components/CloudinaryImage"
 import { Link } from "react-router-dom"
+import { baseThumbnailStyles } from "./foundations"
 const Data = [
   { bgImg: bg1, icon: <FaPalette />, text: "Upgrade your brand" },
   { bgImg: bg2, icon: <FaCalculator />, text: "Manage your finances" },
@@ -43,6 +42,8 @@ const Thumbnail = (props) => {
       borderRadius="16px"
       _hover={{ shadow: "lg", border: "12px solid #699dff" }}
       ratio={1}
+      {...baseThumbnailStyles}
+      to={`/admin/list/${text}`}
     >
       <Center position="relative">
         <CloudinaryImage

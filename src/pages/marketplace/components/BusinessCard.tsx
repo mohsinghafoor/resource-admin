@@ -1,7 +1,6 @@
 import { Avatar, BoxProps, Flex, Heading, HStack, Stack, Text } from "@chakra-ui/react"
 import { faMapPin } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import React from "react"
 import { Link } from "react-router-dom"
 import defaultImage from "../../../assets/images/defaultImage.svg"
 import CloudinaryImage from "../../../components/CloudinaryImage"

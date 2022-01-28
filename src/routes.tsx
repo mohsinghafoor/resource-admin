@@ -6,9 +6,6 @@ import { LoginPage } from "./pages/auth/LoginPage"
 import { RequestResetPassword } from "./pages/auth/RequestResetPassword"
 import { RegisterPage } from "./pages/auth/RegisterPage"
 import Admin from "./pages/auth/components/Admin"
-import CatalogCover from "./pages/marketplace/components/catalog/CatalogCover"
-import FourWideList from "./pages/marketplace/components/catalog/FourWideList"
-import ThreeWideList from "./pages/marketplace/components/catalog/ThreeWideList"
 
 const Routes = () => {
   const { page } = useAnalytics()

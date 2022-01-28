@@ -11,8 +11,6 @@ import {
 } from "../../generated/graphql"
 import { useAuth } from "../../services/auth/AuthProvider"
 import { useUpdateLoginState } from "../../services/auth/utils/useUpdateLoginState"
-// import { requestResetPasswordWithGuardian } from "../../services/ledger/guardian/requestResetPasswordWithGuardian"
-// import { useResetPasswordWithGuardian } from "../../services/ledger/guardian/useResetWithGuardian"
 import { ResetPasswordForm } from "./components/ResetPasswordForm"
 
 export const RecoverAccountPage = () => {
@@ -27,8 +25,6 @@ export const RecoverAccountPage = () => {
   const updateLoginState = useUpdateLoginState()
   const [requestReset] = useRequestResetMutation()
   const auth = useAuth()
-
-  // const resetPasswordWithGuardian = useResetPasswordWithGuardian(updateLoginState)
   const [resetPassword] = useResetPasswordMutation({
     onCompleted: ({ resetPassword }) => {
       updateLoginState(resetPassword as AuthPayload)
@@ -46,7 +42,6 @@ export const RecoverAccountPage = () => {
       const result = await requestReset({ variables: { email: email } })
 
       if (!result.data?.requestReset) {
-        // await requestResetPasswordWithGuardian({ email: email })
       }
       setSuccessMessage("Reset email sent")
     } catch (e) {
@@ -61,12 +56,6 @@ export const RecoverAccountPage = () => {
       try {
         setIsLoading(true)
         if (origin === "guardian") {
-          // await resetPasswordWithGuardian({
-          //   otp,
-          //   email,
-          //   password: values.password,
-          //   setProgress: setProgress,
-          // })
         } else {
           await resetPassword({
             variables: {

@@ -1,6 +1,6 @@
 import { BoxProps, Center } from "@chakra-ui/layout"
 import { Container, Image } from "@chakra-ui/react"
-import React from "react"
+
 import logo from "../assets/logotype.svg"
 
 const SplashPage = ({ ...rest }: BoxProps) => {

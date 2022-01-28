@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Box, Flex, Stack } from "@chakra-ui/react"
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import PageTitle from "../../components/PageTitle"
 import { useAuth } from "../../services/auth/AuthProvider"
 import { RegisterForm } from "./components/RegisterForm"

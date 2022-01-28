@@ -1,6 +1,5 @@
 import { Box, BoxProps, Flex, VStack, HStack, Spacer, Stack } from "@chakra-ui/layout"
-import { FlexboxProps, Heading, IconButton, Image, Text } from "@chakra-ui/react"
-import { useHistory } from "react-router"
+import { Heading, Image, Text } from "@chakra-ui/react"
 import crypto1 from "../../assets/crypto1.png"
 import crypto2 from "../../assets/crypto2.png"
 import crypto3 from "../../assets/crypto3.png"
@@ -10,9 +9,10 @@ import img2 from "../../assets/cryptoimg2.png"
 import img3 from "../../assets/cryptoimg3.png"
 import img4 from "../../assets/cryptoimg4.png"
 import amm from "../../assets/ammount.png"
-import { baseThumbnailStyles } from "./foundations"
+
 import "./style.css"
-import { FaShare, FaRegHeart, FaPlus, FaHandRock } from "react-icons/fa"
+import { FaShare, FaRegHeart } from "react-icons/fa"
+import { ListingList } from "../../../storefront/StorefrontPage"
 const Data = [
   {
     logo: crypto1,
@@ -45,8 +45,6 @@ const Data = [
 ]
 
 const CryptoList = ({ ...rest }: BoxProps) => {
-  const history = useHistory()
-
   return (
     <VStack align="flex-start" {...rest} w="full" h="560px" pt="30">
       <Heading fontSize="28px" fontWeight="600" color="gray.900" p={4} className="heading">
@@ -55,27 +53,7 @@ const CryptoList = ({ ...rest }: BoxProps) => {
 
       <Box overflowX="auto" maxW="100vw" w="full" pb={4}>
         <HStack w="1350px" px={7} spacing={4}>
-          <Flex
-            className="cursor"
-            py="3"
-            variant="category"
-            align="center"
-            direction="column"
-            {...addListStyles}
-            shadow="lg"
-            border=" 1px dashed #595959"
-          >
-            <Box w="220px" h="170px" border="1px dashed #595959" borderRadius="16px" />
-            <Text>Add new listing</Text>
-            <IconButton
-              aria-label="plus"
-              bg="transparent"
-              color="#595959"
-              alignSelf="flex-end"
-              mt="6rem"
-              icon={<FaPlus />}
-            />
-          </Flex>
+          <ListingList />
           {Data.map((card, index) => (
             <Thumbnail
               key={index}

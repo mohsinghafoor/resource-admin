@@ -1,9 +1,6 @@
 import { Badge, Box, BoxProps } from "@chakra-ui/layout"
 import { Heading, VStack } from "@chakra-ui/react"
-import React from "react"
 import CloudinaryImage from "../../../../components/CloudinaryImage"
-import { MarketplaceList } from "../../../../generated/graphql"
-import { baseThumbnailStyles } from "./foundations"
 import featured from "../../assets/featured.jpg"
 import { Link } from "react-router-dom"
 

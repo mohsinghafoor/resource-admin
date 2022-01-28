@@ -1,13 +1,12 @@
-import { Box, Text, Flex, Heading, HStack, VStack } from "@chakra-ui/layout"
+import { Text, Flex, Heading, HStack, VStack } from "@chakra-ui/layout"
 import { Image } from "@chakra-ui/react"
 import React from "react"
-import CloudinaryImage from "../../../../components/CloudinaryImage"
 import bg5 from "../../assets/bg5.png"
 import bg6 from "../../assets/bg6.png"
 import bg7 from "../../assets/bg7.png"
 import "./style.css"
-import { baseThumbnailStyles } from "./foundations"
 import { Link } from "react-router-dom"
+import { baseThumbnailStyles } from "./foundations"
 const Data = [
   { bgImg: bg5, text: "Finance" },
   { bgImg: bg6, text: "Holistic Healing" },
@@ -34,7 +33,14 @@ const ThreeWideList = ({ ...rest }: any) => {
 const Thumbnail = (props) => {
   const { bgImg, text } = props
   return (
-    <Flex direction="column" w="415px" className="cursor" justifyContent="flex-end">
+    <Flex
+      direction="column"
+      w="415px"
+      className="cursor"
+      justifyContent="flex-end"
+      {...baseThumbnailStyles}
+      to={`/admin/list/${text}`}
+    >
       <Image
         src={bgImg}
         border="12px solid transparent"

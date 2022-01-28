@@ -1,4 +1,3 @@
-import React from "react"
 import OwnerType from "./catalog/OwnerType"
 import States from "./catalog/States"
 

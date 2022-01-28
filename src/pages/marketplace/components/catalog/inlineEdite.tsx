@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { gridSize as getGridSize } from "@atlaskit/theme/constants"
 

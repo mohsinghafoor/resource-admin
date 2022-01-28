@@ -17,11 +17,15 @@ const CatalogFooter = ({ catalog, ...rest }: any) => {
   const [isEdit, setIsEdit] = useState(false)
   const [isTitle, setIsTitle] = useState(true)
   const [inputValue, setInputValue] = useState("A mutual credit marketplace")
-
+  const [url, setUrl] = useState(footerbg)
   const handleEdit = () => {
     setIsEdit(true)
     setIsTitle(false)
   }
+  const handleImage = (Images) => {
+    setUrl(Images)
+  }
+
   return (
     <Box position="relative" p={4} rounded="2xl">
       <CloudinaryImage
@@ -31,7 +35,7 @@ const CatalogFooter = ({ catalog, ...rest }: any) => {
         rounded="2xl"
         zIndex={-2}
         quality="good"
-        src={footerbg}
+        src={url}
         filter="brightness(50%)"
       />
       <VStack
@@ -63,7 +67,7 @@ const CatalogFooter = ({ catalog, ...rest }: any) => {
 
         <SearchBar />
         <Stack justifyContent="flex-end" alignItems="flex-end" w="full" h="100px">
-          <HeaderButtons />
+          <HeaderButtons ImageHandler={handleImage} />
         </Stack>
       </VStack>
     </Box>

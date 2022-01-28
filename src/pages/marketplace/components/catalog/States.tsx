@@ -1,6 +1,5 @@
-import { Box, Heading, HStack, VStack, Flex } from "@chakra-ui/layout"
+import { HStack } from "@chakra-ui/layout"
 import { Button } from "@chakra-ui/react"
-import React from "react"
 const Data = [
   { text: "Public" },
   { text: "Asheville" },

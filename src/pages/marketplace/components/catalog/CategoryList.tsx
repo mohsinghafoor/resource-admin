@@ -1,9 +1,7 @@
-import { Box, BoxProps, SimpleGrid, HStack, VStack } from "@chakra-ui/layout"
-import { ButtonProps, Heading, SkeletonText } from "@chakra-ui/react"
-import { IconProp } from "@fortawesome/fontawesome-svg-core"
+import { Box, BoxProps, SimpleGrid, VStack } from "@chakra-ui/layout"
+import { ButtonProps, Heading } from "@chakra-ui/react"
 import { faArrowRight, faGlobeAmericas } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import React from "react"
 import { useHistory } from "react-router"
 import Button from "../../../../components/Button"
 import {
@@ -22,6 +20,7 @@ import {
   FaUtensils,
   FaCashRegister,
 } from "react-icons/fa"
+import { baseThumbnailStyles } from "./foundations"
 const Data = [
   { icon: <FaBullhorn />, text: "advertising & Marketing" },
   { icon: <FaCar />, text: "Automtive" },

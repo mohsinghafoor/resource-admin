@@ -1,5 +1,4 @@
-import { HeadingProps, BoxProps, Heading, Stack } from "@chakra-ui/layout"
-import CloudinaryImage from "../../../../components/CloudinaryImage"
+import { BoxProps, Heading, Stack } from "@chakra-ui/layout"
 import { Catalog } from "../../../../generated/graphql"
 import SearchBar from "./SearchBar"
 import coverImage from "../../assets/coverbg.jpg"
@@ -15,9 +14,30 @@ const CatalogCover = ({ ...rest }: any) => {
   const [isEdit, setIsEdit] = useState(false)
   const [isTitle, setIsTitle] = useState(true)
   const [inputValue, setInputValue] = useState("Buy and sell with credit")
+  const [url, setUrl] = useState(coverImage)
+
+  const height = {
+    base: "220px",
+    md: "600px",
+  }
+
+  const coverStyles: BoxProps = {
+    height,
+    bgImg: url,
+    backgroundSize: "100%",
+    width: "1320px",
+    objectFit: "cover",
+    filter: "brightness(90%)",
+    justifyContent: "center",
+  }
+
   const handleEdit = () => {
     setIsEdit(true)
     setIsTitle(false)
+  }
+
+  const handleImage = (Images) => {
+    setUrl(Images)
   }
   return (
     <Stack {...coverStyles}>
@@ -38,27 +58,12 @@ const CatalogCover = ({ ...rest }: any) => {
         )}
       </Stack>
       <SearchBar />
+
       <Stack h="200px" justifyContent="flex-end">
-        <HeaderButtons />
+        <HeaderButtons ImageHandler={handleImage} />
       </Stack>
     </Stack>
   )
-}
-
-const height = {
-  base: "220px",
-  md: "600px",
-}
-
-const coverStyles: BoxProps = {
-  height,
-  bgImg: coverImage,
-  backgroundSize: "100%",
-  width: "1320px",
-  objectFit: "cover",
-  filter: "brightness(90%)",
-  justifyContent: "center",
-  // border: "12px solid transparent",
 }
 
 export default CatalogCover

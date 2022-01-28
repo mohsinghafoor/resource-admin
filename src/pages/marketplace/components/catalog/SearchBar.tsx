@@ -1,13 +1,10 @@
 import { SearchIcon } from "@chakra-ui/icons"
 import { BoxProps } from "@chakra-ui/layout"
 import { ButtonProps, Input, InputGroup, InputRightElement, Stack } from "@chakra-ui/react"
-import React, { useRef, useState } from "react"
+import { useRef } from "react"
 import { useHistory } from "react-router"
-import { boolean } from "yup/lib/locale"
 import Button from "../../../../components/Button"
 import { textStyles } from "../../../../theme/textStyles"
-import SearchModal from "./EditTitle"
-
 type SearchBarProps = {
   isFooter?: boolean
 }

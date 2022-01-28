@@ -1,5 +1,4 @@
 import { Box } from "@chakra-ui/react"
-import React from "react"
 import CategoryList from "./catalog/CategoryList"
 import CryptoList from "./catalog/CryptoList"
 

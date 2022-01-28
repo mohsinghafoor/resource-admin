@@ -4,9 +4,6 @@
 .heading {
   cursor: url("../../assets/icursor.png"), pointer;
 }
-/* .css-r5uk70-ButtonBase {
-  background: red !important;
-} */
 .css-17sthuj {
   display: none !important;
 }
@@ -23,6 +20,3 @@
   color: #ffffff;
   background: rgba(255, 255, 255, 0.15);
 }
-/* .css-1azobfa {
-  background: none !important;
-} */

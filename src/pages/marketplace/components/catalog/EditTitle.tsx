@@ -4,12 +4,9 @@ import { useState } from "react"
 import { FaCheck, FaTimes } from "react-icons/fa"
 import "./style.css"
 const EditTitle = ({ setIsTitle, setIsEdit, setInputValue }: any) => {
-  const [show, setShow] = useState(true)
-
   const handleClickCross = () => {
     setIsTitle(true)
     setIsEdit(false)
-    setInputValue("A mutual credit marketplace")
   }
   const handleClickTick = () => {
     setIsTitle(true)

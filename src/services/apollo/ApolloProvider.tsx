@@ -4,7 +4,6 @@ import {
   DefaultOptions,
   InMemoryCache,
 } from "@apollo/client"
-import React from "react"
 import { getApolloLink } from "./apolloLink"
 
 const defaultOptions: DefaultOptions = {

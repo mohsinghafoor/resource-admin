@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import { useEffect } from "react"
 import SplashPage from "../../components/SplashPage"
 import { useSignout } from "../../services/auth/useSignout"
 

@@ -1,25 +1,17 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Box, Center, Flex, Spinner, Stack, Text } from "@chakra-ui/react"
 import * as Sentry from "@sentry/react"
 import { GraphQLError } from "graphql"
-import React, { useCallback, useState } from "react"
+import { useCallback, useState } from "react"
 import { useHistory } from "react-router-dom"
 import PageTitle from "../../components/PageTitle"
 import { useResetOtpMutation, useVerifyOtpMutation } from "../../generated/graphql"
-// import { useGetMe } from "../../store/useGetMe"
+
 import { OTPForm } from "./components/OTPForm"
 
 export const OTPPage = () => {
   const history = useHistory()
-  // const refetchMeData = useGetMe().refetch
-  const email = new URL(window.location.href.replace("+", "%2B")).searchParams.get("email")
-  // const { me, loading: meLoading } = useGetMe()
 
-  // TODO extract routing logic to routing layer
-  // if (!email) history.push("/login")
-  // if (me?.isEmailValidated) {
-  // me?.business ? history.push("/marketplace") : history.push("/onboarding")
-  // }
+  const email = new URL(window.location.href.replace("+", "%2B")).searchParams.get("email")
 
   const [success, setSuccess] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")

@@ -1,4 +1,3 @@
-import React from "react"
 import CatalogCover from "./catalog/CatalogCover"
 import CatalogFooter from "./catalog/CatalogFooter"
 import CatalogHeader from "./CatalogHeader"

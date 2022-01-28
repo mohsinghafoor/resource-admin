@@ -1,0 +1,23 @@
+fragment MarketplaceListFragment on MarketplaceList {
+  id
+  title
+  coverImage
+  icon
+  listings {
+    id
+    cost
+    title
+    imageUrl
+    business {
+      handle
+      name
+      logoUrl
+    }
+  }
+}
+
+query findMarketplaceListById($id: ID!) {
+  findMarketplaceListById(id: $id) {
+    ...MarketplaceListFragment
+  }
+}

@@ -30,7 +30,7 @@ const CatalogFooter = ({ catalog, ...rest }: any) => {
     <Box position="relative" p={4} rounded="2xl">
       <CloudinaryImage
         h={imageHeight}
-        w="1302px"
+        w="full"
         objectFit="cover"
         rounded="2xl"
         zIndex={-2}

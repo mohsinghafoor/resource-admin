@@ -1,4 +1,4 @@
-import { Text, Flex, Heading, HStack, VStack } from "@chakra-ui/layout"
+import { Text, Stack, Heading, HStack, VStack, Box, Center, AspectRatio } from "@chakra-ui/layout"
 import { Image } from "@chakra-ui/react"
 import React from "react"
 import bg5 from "../../assets/bg5.png"
@@ -7,6 +7,7 @@ import bg7 from "../../assets/bg7.png"
 import "./style.css"
 import { Link } from "react-router-dom"
 import { baseThumbnailStyles } from "./foundations"
+import CloudinaryImage from "../../../../components/CloudinaryImage"
 const Data = [
   { bgImg: bg5, text: "Finance" },
   { bgImg: bg6, text: "Holistic Healing" },
@@ -15,17 +16,17 @@ const Data = [
 
 const ThreeWideList = ({ ...rest }: any) => {
   return (
-    <VStack align="flex-start" {...rest}>
+    <VStack align="flex-start" {...rest} width="full" overflowX="auto">
       <Heading fontSize="36px" color="#595959" fontWeight="600" py={2} px={4}>
-        Top remote services
+        Small business starter packs
       </Heading>
-      <Flex maxW="100vw" overflowX="auto" pb={3}>
-        <HStack px={4} spacing={4} w="fit-content">
+      <Box overflowX="auto" pb={3}>
+        <HStack px={4} spacing={6} w="fit-content">
           {Data.map((card, index) => (
             <Thumbnail key={index} bgImg={card.bgImg} text={card.text} />
           ))}
         </HStack>
-      </Flex>
+      </Box>
     </VStack>
   )
 }
@@ -33,28 +34,26 @@ const ThreeWideList = ({ ...rest }: any) => {
 const Thumbnail = (props) => {
   const { bgImg, text } = props
   return (
-    <Flex
-      direction="column"
-      w="415px"
-      className="cursor"
-      justifyContent="flex-end"
+    <VStack
+      to={`/marketplace/list/${text}`}
+      w={{ base: "260px", md: "410px" }}
+      align="flex-start"
       {...baseThumbnailStyles}
-      to={`/admin/list/${text}`}
     >
-      <Image
+      <CloudinaryImage
+        fit="cover"
+        borderRadius="25px"
+        quality="low"
+        w="full"
+        h={{ base: "200px", md: "260px" }}
         src={bgImg}
+        _hover={{ shadow: "lg", border: "12px solid #699dff" }}
         border="12px solid transparent"
-        borderRadius="22px"
-        alt=""
-        _hover={{ border: "12px solid #699dff" }}
       />
-      <Text fontSize="28px" fontWeight="600" color="#333333" mt="5" ml="2">
+      <Heading fontSize="28px" color="#333333" fontWeight="600">
         {text}
-      </Text>
-      <Link to="/admin" className="link" style={{ width: 415, marginBottom: 70 }}>
-        Edit List
-      </Link>
-    </Flex>
+      </Heading>
+    </VStack>
   )
 }
 

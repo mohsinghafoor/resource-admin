@@ -42,30 +42,28 @@ const Data = [
 const CategoryList = ({ ...rest }: BoxProps) => {
   const history = useHistory()
   return (
-    <>
-      <VStack overflowX="visible" align="flex-start" {...rest} py={4}>
-        <Heading fontSize="36px" color="gray.900" py={2} px={4}>
-          Browse by category
-        </Heading>
-        <Box maxW="100vw" overflowX="auto" pb={3}>
-          <SimpleGrid columns={4} rows={4} spacing={3} w="fit-content">
-            {Data.map((card, index) => (
-              <CategoryButton key={index} text={card.text} icon={card.icon} />
-            ))}
-            <Button
-              variant="category"
-              border=" 1px solid #BDBDBD"
-              w="310px"
-              leftIcon={<FontAwesomeIcon style={{ marginRight: "8px" }} icon={faGlobeAmericas} />}
-              rightIcon={<FontAwesomeIcon icon={faArrowRight} />}
-              fontWeight="500"
-            >
-              View all listings
-            </Button>
-          </SimpleGrid>
-        </Box>
-      </VStack>
-    </>
+    <VStack overflowX="visible" align="flex-start" {...rest} pl={5} py={4} w="full">
+      <Heading fontSize="36px" color="gray.900" py={4}>
+        Browse by category
+      </Heading>
+      <Box overflowX="auto" pb={3} w="full">
+        <SimpleGrid columns={4} rows={4} spacing={3} w="full">
+          {Data.map((card, index) => (
+            <CategoryButton key={index} text={card.text} icon={card.icon} />
+          ))}
+          <Button
+            variant="category"
+            border=" 1px solid #BDBDBD"
+            w="294px"
+            leftIcon={<FontAwesomeIcon style={{ marginRight: "8px" }} icon={faGlobeAmericas} />}
+            rightIcon={<FontAwesomeIcon icon={faArrowRight} />}
+            fontWeight="500"
+          >
+            View all listings
+          </Button>
+        </SimpleGrid>
+      </Box>
+    </VStack>
   )
 }
 
@@ -80,7 +78,7 @@ const CategoryButton = (props) => {
       variant="category"
       leftIcon={<Box>{icon}</Box>}
       border=" 1px solid #BDBDBD"
-      w="310px"
+      w="294px"
       fontWeight="500"
     >
       {text}

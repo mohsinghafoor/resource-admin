@@ -27,7 +27,7 @@ const Data = [
 ]
 function Sidebar() {
   return (
-    <VStack w="200px" h="3205px" alignItems="flex-start" px="5">
+    <VStack w="full" h="full" alignItems="flex-start" px="5">
       {Data.map((card, index) => (
         <Thumbnail key={index} text={card.text} icon={card.icon} link={card.link} />
       ))}

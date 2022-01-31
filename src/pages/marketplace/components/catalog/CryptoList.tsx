@@ -51,8 +51,8 @@ const CryptoList = ({ ...rest }: BoxProps) => {
         Crypto and software services
       </Heading>
 
-      <Box overflowX="auto" maxW="100vw" w="full" pb={4}>
-        <HStack w="1350px" px={7} spacing={4}>
+      <Box overflowX="auto" maxW="full" w="full" pb={4}>
+        <HStack w="full" px={7} spacing={4}>
           <ListingList />
           {Data.map((card, index) => (
             <Thumbnail

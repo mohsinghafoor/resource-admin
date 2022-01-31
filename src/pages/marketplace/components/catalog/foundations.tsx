@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 export const baseThumbnailStyles: BoxProps = {
   as: Link,
   cursor: "pointer",
-  rounded: "2xl",
+  // rounded: "2xl",
 }
 
 export const headingStyle: HeadingProps = {

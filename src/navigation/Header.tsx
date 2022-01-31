@@ -12,28 +12,26 @@ export const Header = () => {
     position: "sticky",
     bgColor: "white",
   }
-  const location = useLocation()
-  console.log("path:", location.pathname)
-  if (location.pathname === "/admin") {
-    return (
-      <Flex {...containerStyles}>
-        <VStack align="flex-start">
-          <Image src={logo} width="150px" _hover={{ cursor: "pointer" }} />
-          <Text fontFamily="Poppins" fontSize="10px" color=" #8C8C8C">
-            Admin
-          </Text>
-        </VStack>
-        <Spacer />
-
-        <HStack>
-          <Text color="#8C8C8C" fontSize="12px">
-            Your session expires in
-          </Text>
-          <Counter />
-        </HStack>
-      </Flex>
-    )
-  }
+  // const location = useLocation()
+  // if (location.pathname === "/admin") {
+  //   return (
+  //     <Flex {...containerStyles}>
+  //       <VStack align="flex-start">
+  //         <Image src={logo} width="150px" _hover={{ cursor: "pointer" }} />
+  //         <Text fontFamily="Poppins" fontSize="10px" color=" #8C8C8C">
+  //           Admin
+  //         </Text>
+  //       </VStack>
+  //       <Spacer />
+  //       <HStack>
+  //         <Text color="#8C8C8C" fontSize="12px">
+  //           Your session expires in
+  //         </Text>
+  //         <Counter />
+  //       </HStack>
+  //     </Flex>
+  //   )
+  // }
   return (
     <Flex {...containerStyles}>
       <VStack align="flex-start">

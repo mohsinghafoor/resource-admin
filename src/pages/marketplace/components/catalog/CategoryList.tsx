@@ -43,7 +43,7 @@ const CategoryList = ({ ...rest }: BoxProps) => {
   const history = useHistory()
   return (
     <VStack overflowX="visible" align="flex-start" {...rest} pl={5} py={4} w="full">
-      <Heading fontSize="36px" color="gray.900" py={4}>
+      <Heading className="heading" fontSize="36px" color="gray.900" py={4}>
         Browse by category
       </Heading>
       <Box overflowX="auto" pb={3} w="full">

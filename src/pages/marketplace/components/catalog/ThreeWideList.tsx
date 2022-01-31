@@ -5,7 +5,6 @@ import bg5 from "../../assets/bg5.png"
 import bg6 from "../../assets/bg6.png"
 import bg7 from "../../assets/bg7.png"
 import "./style.css"
-import { Link } from "react-router-dom"
 import { baseThumbnailStyles } from "./foundations"
 import CloudinaryImage from "../../../../components/CloudinaryImage"
 const Data = [
@@ -17,7 +16,7 @@ const Data = [
 const ThreeWideList = ({ ...rest }: any) => {
   return (
     <VStack align="flex-start" {...rest} width="full" overflowX="auto">
-      <Heading fontSize="36px" color="#595959" fontWeight="600" py={2} px={4}>
+      <Heading className="heading" fontSize="36px" color="#595959" fontWeight="600" py={2} px={4}>
         Small business starter packs
       </Heading>
       <Box overflowX="auto" pb={3}>
@@ -35,6 +34,7 @@ const Thumbnail = (props) => {
   const { bgImg, text } = props
   return (
     <VStack
+      className="cursor"
       to={`/marketplace/list/${text}`}
       w={{ base: "260px", md: "410px" }}
       align="flex-start"

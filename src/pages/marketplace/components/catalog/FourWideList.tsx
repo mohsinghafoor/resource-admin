@@ -19,7 +19,7 @@ const Data = [
 const FourWideList = ({ ...rest }: any) => {
   return (
     <VStack align="flex-start" {...rest} width="full" overflowX="auto">
-      <Heading fontSize="36px" color="#595959" fontWeight="600" py={2} px={4}>
+      <Heading className="heading" fontSize="36px" color="#595959" fontWeight="600" py={2} px={4}>
         Small business starter packs
       </Heading>
       <Box overflowX="auto" pb={3}>

@@ -103,6 +103,7 @@ const Thumbnail = (props) => {
           border="1px solid gray"
           w="100px"
           h="30px"
+          fontFamily="Courier Prime"
           justifyContent="center"
         >
           <Text color="black">{ammount}</Text>

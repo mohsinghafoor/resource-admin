@@ -1,11 +1,14 @@
 import { useEffect } from "react"
-import { Route, Switch, useLocation } from "react-router-dom"
+import { Route, Switch, useLocation, useRouteMatch } from "react-router-dom"
 import { useSearchParam } from "react-use"
 import { useAnalytics } from "use-analytics"
 import { LoginPage } from "./pages/auth/LoginPage"
 import { RequestResetPassword } from "./pages/auth/RequestResetPassword"
 import { RegisterPage } from "./pages/auth/RegisterPage"
 import Admin from "./pages/auth/components/Admin"
+import DirectoriesPage from "./pages/marketplace/components/DirectoriesPage"
+import EditlistModal from "./pages/marketplace/components/catalog/EditlistModal"
+import MarketplaceListPage from "./pages/marketplace/components/MarketplaceListPage"
 
 const Routes = () => {
   const { page } = useAnalytics()
@@ -19,13 +22,16 @@ const Routes = () => {
   useEffect(() => {
     page()
   }, [location, page])
-
+  const { path } = useRouteMatch()
   return (
     <Switch>
       <Route exact path="/" component={LoginPage} />
       <Route path="/request-reset-password" component={RequestResetPassword} />
       <Route path="/register" component={RegisterPage} />
       <Route path="/admin" component={Admin} />
+      {/*<Route path="/marketplace/listings" component={EditlistModal} /> */}
+      <Route path="/list/edit" component={Admin} />
+      <Route path="/marketplace/listings" component={Admin} />
     </Switch>
   )
 }

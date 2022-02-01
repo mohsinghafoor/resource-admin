@@ -1,5 +1,6 @@
 import { useApolloClient } from "@apollo/client"
 import { Box, BoxProps } from "@chakra-ui/layout"
+import crypto1 from "../assets/crypto1.png"
 import {
   AlertDialog,
   AlertDialogBody,
@@ -33,6 +34,7 @@ import {
 } from "../../../generated/graphql"
 import colors from "../../../theme/foundations/colors"
 import EditListingModal from "../../storefront/components/EditListingModal"
+import { FaHeart, FaRegHeart } from "react-icons/fa"
 export interface ListingCardProps extends BoxProps {
   listing: Listing
   layout?: "mobile" | "desktop"
@@ -45,20 +47,20 @@ export const ListingCard = ({ listing, layout, ...rest }: ListingCardProps) => {
   const { onCopy } = useClipboard(fullUrl)
   const toast = useToast()
 
-  const BusinessInfo = (props: BoxProps) => (
-    <HStack {...props}>
-      <CloudinaryImage
-        h="25px"
-        w="25px"
-        rounded="full"
-        src={listing?.business?.logoUrl ?? ""}
-        _hover={{ shadow: "md" }}
-      />
-      <Text noOfLines={1} variant="caption">
-        {listing?.business?.name}
-      </Text>
-    </HStack>
-  )
+  // const BusinessInfo = (props: BoxProps) => (
+  //   <HStack {...pr>
+  //     <CloudinaryImage
+  //       h="25px"
+  //       w="25px"
+  //       rounded="full"
+  //       src={listing?.business?.logoUrl ?? ""}
+  //       _hover={{ shadow: "md" }}
+  //     />
+  //     <Text noOfLines={1} variant="caption">
+  //       {listing?.business?.name}
+  //     </Text>
+  //   </HStack>
+  // )
 
   const Image = () => (
     <CloudinaryImage
@@ -75,33 +77,45 @@ export const ListingCard = ({ listing, layout, ...rest }: ListingCardProps) => {
 
   const PriceTag = () => {
     return (
-      <Center rounded="full" px={2} border={`1px solid ${colors.purple.main}`}>
-        {listing.cost > 0 ? (
-          <GlyphLabel value={listing.cost} size={"sm"} />
-        ) : (
+      <Center rounded="full" h="30px" px={2} border="1px solid ">
+        {/* {listing.cost > 0 ? ( */}
+        <GlyphLabel value={listing.cost} size={"sm"} />
+        {/* ) : (
           <Text lineHeight={1.7} noOfLines={1}>
             contact for price
           </Text>
-        )}
+        )} */}
       </Center>
     )
   }
 
   const CopyButton = () => (
-    <IconButton
-      size="sm"
-      padding="2px !important"
-      rounded="full"
-      bgColor="white"
-      aria-label="share"
-      variant="ghost"
-      icon={<FontAwesomeIcon icon={faShare} />}
-      onClick={(e) => {
-        onCopy()
-        toast({ description: "Link copied" })
-        e.preventDefault()
-      }}
-    />
+    <HStack>
+      <IconButton
+        size="sm"
+        padding="2px !important"
+        rounded="full"
+        bgColor="white"
+        aria-label="share"
+        variant="ghost"
+        icon={<FontAwesomeIcon icon={faShare} />}
+        onClick={(e) => {
+          onCopy()
+          toast({ description: "Link copied" })
+          e.preventDefault()
+        }}
+      />
+
+      <IconButton
+        size="sm"
+        padding="2px !important"
+        rounded="full"
+        bgColor="white"
+        aria-label="share"
+        variant="ghost"
+        icon={<FaRegHeart />}
+      />
+    </HStack>
   )
 
   const MobileLayout = () => {
@@ -128,13 +142,13 @@ export const ListingCard = ({ listing, layout, ...rest }: ListingCardProps) => {
         >
           <Image />
 
-          <HStack zIndex={2} position={"absolute"} right="0px" m={2}>
+          {/* <HStack zIndex={2} position={"absolute"} right="0px" m={2}>
             <PublishContainer listing={listing} />
             <EditContainer listing={listing} />
-          </HStack>
+          </HStack> */}
         </Box>
         <VStack w="full" alignItems="stretch" justify="space-between">
-          <BusinessInfo />
+          {/* <BusinessInfo /> */}
           <Text noOfLines={2} h="40px">
             {listing.title}
           </Text>
@@ -158,16 +172,31 @@ export const ListingCard = ({ listing, layout, ...rest }: ListingCardProps) => {
       rounded={"12px"}
       align="stretch"
       to={listingPath}
-      _hover={{ bgColor: "white", shadow: "md" }}
+      border="12px solid transparent"
+      w="236px"
+      h="341px"
+      _hover={{ bgColor: "white", shadow: "md", border: "12px solid #699DFF" }}
       {...rest}
     >
-      <BusinessInfo />
+      {/* <BusinessInfo /> */}
       <Box marginInlineStart="0px !important" h={"220px"} minW="120px" position="relative">
         <Image />
 
-        <HStack zIndex={2} position={"absolute"} right="0px" m={2}>
-          <PublishContainer listing={listing} />
-          <EditContainer listing={listing} />
+        <HStack
+          zIndex={2}
+          position={"absolute"}
+          left="0px"
+          w="150px"
+          h="40px"
+          bg="rgba(255, 255, 255, 0.9)"
+          borderRadius="8px 0px"
+        >
+          <Text noOfLines={1} variant="caption">
+            {listing?.business?.name}
+          </Text>
+
+          {/* <PublishContainer listing={listing} />
+          <EditContainer listing={listing} /> */}
         </HStack>
       </Box>
       <VStack w="full" alignItems="stretch">

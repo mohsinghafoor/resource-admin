@@ -42,6 +42,13 @@ const Data = [
     text: "Career Counselling - Software Development",
     ammount: "50.00",
   },
+  {
+    logo: crypto3,
+    title: "My Bear Hand",
+    img: img3,
+    text: "Yeild Farming & DeFi Class",
+    ammount: "700.00",
+  },
 ]
 
 const CryptoList = ({ ...rest }: BoxProps) => {
@@ -53,7 +60,6 @@ const CryptoList = ({ ...rest }: BoxProps) => {
 
       <Box overflowX="auto" maxW="full" w="full" pb={4}>
         <HStack w="full" px={7} spacing={4}>
-          <ListingList />
           {Data.map((card, index) => (
             <Thumbnail
               key={index}

@@ -21,7 +21,7 @@ import EditListingModal from "./components/EditListingModal"
 
 export const coverStyles = {
   objectFit: "cover" as any,
-  h: { base: "120px", md: "220px" },
+  h: { base: "120px", md: "300px" },
   w: "full",
 }
 

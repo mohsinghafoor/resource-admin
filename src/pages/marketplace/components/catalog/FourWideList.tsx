@@ -7,8 +7,9 @@ import bg3 from "../../assets/bg3.png"
 import bg4 from "../../assets/bg2.png"
 import "./style.css"
 import CloudinaryImage from "../../../../components/CloudinaryImage"
-import { Link } from "react-router-dom"
 import { baseThumbnailStyles } from "./foundations"
+import EditlistModal from "./EditlistModal"
+
 const Data = [
   { bgImg: bg1, icon: <FaPalette />, text: "Upgrade your brand" },
   { bgImg: bg2, icon: <FaCalculator />, text: "Manage your finances" },
@@ -22,6 +23,7 @@ const FourWideList = ({ ...rest }: any) => {
       <Heading className="heading" fontSize="36px" color="#595959" fontWeight="600" py={2} px={4}>
         Small business starter packs
       </Heading>
+
       <Box overflowX="auto" pb={3}>
         <HStack px={4} spacing={6} w="fit-content">
           {Data.map((card, index) => (
@@ -44,7 +46,7 @@ const Thumbnail = (props) => {
       _hover={{ shadow: "lg", border: "12px solid #699dff" }}
       ratio={1}
       {...baseThumbnailStyles}
-      to={`/admin/list/${text}`}
+      to={`/list/edit`}
     >
       <Center position="relative">
         <CloudinaryImage
@@ -65,9 +67,8 @@ const Thumbnail = (props) => {
           <Heading color="white" size="header" textAlign="center">
             {text}
           </Heading>
-          <Link to="" className="link" style={{ marginTop: 130 }}>
-            Edit List
-          </Link>
+
+          {/* <Button className="link">Edit List</Button> */}
         </VStack>
       </Center>
     </AspectRatio>

@@ -9,7 +9,6 @@ import { headingStyle } from "./foundations"
 import EditTitle from "./EditTitle"
 import HeaderButtons from "./HeaderButtons"
 interface Props extends BoxProps {
-  a
   catalog: Catalog
 }
 

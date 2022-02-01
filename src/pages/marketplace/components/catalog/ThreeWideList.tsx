@@ -7,6 +7,7 @@ import bg7 from "../../assets/bg7.png"
 import "./style.css"
 import { baseThumbnailStyles } from "./foundations"
 import CloudinaryImage from "../../../../components/CloudinaryImage"
+import EditlistModal from "./EditlistModal"
 const Data = [
   { bgImg: bg5, text: "Finance" },
   { bgImg: bg6, text: "Holistic Healing" },

@@ -1,7 +1,7 @@
 import { SearchIcon } from "@chakra-ui/icons"
 import { Box, BoxProps, Input, InputGroup, InputLeftElement, Text } from "@chakra-ui/react"
 import { debounce } from "lodash"
-import React, { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
 import { useRecoilState } from "recoil"
 import { listingQuerySelector as listingSelector } from "../../../store/listing"

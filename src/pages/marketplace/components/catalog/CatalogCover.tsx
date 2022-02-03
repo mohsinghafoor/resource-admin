@@ -1,11 +1,10 @@
 import { Box, BoxProps, Heading, VStack, Stack } from "@chakra-ui/layout"
-import React from "react"
 import CloudinaryImage from "../../../../components/CloudinaryImage"
 import { Catalog } from "../../../../generated/graphql"
 import SearchBar from "./SearchBar"
 import coverImage from "../../assets/coverbg.jpg"
 import { useState } from "react"
-import { headingStyle } from "./foundations"
+import { headingStyle } from "./SharedStyles"
 import EditTitle from "./EditTitle"
 import HeaderButtons from "./HeaderButtons"
 interface Props extends BoxProps {
@@ -60,6 +59,7 @@ const CatalogCover = ({ catalog, ...rest }: any) => {
           )}
         </Stack>
         <SearchBar />
+
         <Stack h="200px" justifyContent="flex-end" w="full">
           <HeaderButtons ImageHandler={handleImage} />
         </Stack>

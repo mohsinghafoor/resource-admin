@@ -7,8 +7,7 @@ import bg3 from "../../assets/bg3.png"
 import bg4 from "../../assets/bg2.png"
 import "./style.css"
 import CloudinaryImage from "../../../../components/CloudinaryImage"
-import { baseThumbnailStyles } from "./foundations"
-import EditlistModal from "./EditlistModal"
+import { baseThumbnailStyles } from "./SharedStyles"
 
 const Data = [
   { bgImg: bg1, icon: <FaPalette />, text: "Upgrade your brand" },

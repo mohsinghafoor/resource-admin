@@ -7,7 +7,7 @@ import SearchBar from "./SearchBar"
 import footerbg from "../../assets/footerbg.jpg"
 import HeaderButtons from "./HeaderButtons"
 import "./style.css"
-import { headingStyle } from "./foundations"
+import { headingStyle } from "./SharedStyles"
 import EditTitle from "./EditTitle"
 interface Props extends BoxProps {
   catalog: Catalog

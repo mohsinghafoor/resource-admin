@@ -27,6 +27,11 @@ export const listingAtom = atom({
   },
 })
 
+export const iconAtom = atom({
+  key: "icomAtom",
+  default: "fa fa-area-chart",
+})
+
 export const listingQuerySelector = selector<ListingQueryOptions>({
   key: "listingQuerySelector",
   get: ({ get }) => get(listingAtom).queryOptions,

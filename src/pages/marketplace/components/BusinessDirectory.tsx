@@ -51,7 +51,7 @@ export const BusinessDirectory = () => {
             called={called}
             loading={loading}
             items={businesses}
-            type="business"
+            // type="business"
             total={total}
             current={page}
             pageSize={pageSize}

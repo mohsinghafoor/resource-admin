@@ -1,6 +1,5 @@
 import { useApolloClient } from "@apollo/client"
 import { Box, BoxProps } from "@chakra-ui/layout"
-import crypto1 from "../assets/crypto1.png"
 import {
   AlertDialog,
   AlertDialogBody,
@@ -34,7 +33,7 @@ import {
 } from "../../../generated/graphql"
 import colors from "../../../theme/foundations/colors"
 import EditListingModal from "../../storefront/components/EditListingModal"
-import { FaHeart, FaRegHeart } from "react-icons/fa"
+import { FaRegHeart } from "react-icons/fa"
 export interface ListingCardProps extends BoxProps {
   listing: Listing
   layout?: "mobile" | "desktop"
@@ -46,22 +45,6 @@ export const ListingCard = ({ listing, layout, ...rest }: ListingCardProps) => {
   const fullUrl = `${window.location.origin}${listingPath}`
   const { onCopy } = useClipboard(fullUrl)
   const toast = useToast()
-
-  // const BusinessInfo = (props: BoxProps) => (
-  //   <HStack {...pr>
-  //     <CloudinaryImage
-  //       h="25px"
-  //       w="25px"
-  //       rounded="full"
-  //       src={listing?.business?.logoUrl ?? ""}
-  //       _hover={{ shadow: "md" }}
-  //     />
-  //     <Text noOfLines={1} variant="caption">
-  //       {listing?.business?.name}
-  //     </Text>
-  //   </HStack>
-  // )
-
   const Image = () => (
     <CloudinaryImage
       mr="-10px !important"
@@ -78,13 +61,7 @@ export const ListingCard = ({ listing, layout, ...rest }: ListingCardProps) => {
   const PriceTag = () => {
     return (
       <Center rounded="full" h="30px" px={2} border="1px solid ">
-        {/* {listing.cost > 0 ? ( */}
         <GlyphLabel value={listing.cost} size={"sm"} />
-        {/* ) : (
-          <Text lineHeight={1.7} noOfLines={1}>
-            contact for price
-          </Text>
-        )} */}
       </Center>
     )
   }
@@ -141,14 +118,9 @@ export const ListingCard = ({ listing, layout, ...rest }: ListingCardProps) => {
           w={"120px"}
         >
           <Image />
-
-          {/* <HStack zIndex={2} position={"absolute"} right="0px" m={2}>
-            <PublishContainer listing={listing} />
-            <EditContainer listing={listing} />
-          </HStack> */}
         </Box>
         <VStack w="full" alignItems="stretch" justify="space-between">
-          {/* <BusinessInfo /> */}
+          ]
           <Text noOfLines={2} h="40px">
             {listing.title}
           </Text>
@@ -178,7 +150,6 @@ export const ListingCard = ({ listing, layout, ...rest }: ListingCardProps) => {
       _hover={{ bgColor: "white", shadow: "md", border: "12px solid #699DFF" }}
       {...rest}
     >
-      {/* <BusinessInfo /> */}
       <Box marginInlineStart="0px !important" h={"220px"} minW="120px" position="relative">
         <Image />
 
@@ -194,9 +165,6 @@ export const ListingCard = ({ listing, layout, ...rest }: ListingCardProps) => {
           <Text noOfLines={1} variant="caption">
             {listing?.business?.name}
           </Text>
-
-          {/* <PublishContainer listing={listing} />
-          <EditContainer listing={listing} /> */}
         </HStack>
       </Box>
       <VStack w="full" alignItems="stretch">

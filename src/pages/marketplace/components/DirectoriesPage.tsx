@@ -1,6 +1,6 @@
 import { Heading } from "@chakra-ui/layout"
 import { Container, Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react"
-import React, { useEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 import { Link, Redirect, useLocation } from "react-router-dom"
 import { useSetRecoilState } from "recoil"
 import { getPageTitle } from "../../../components/PageTitle"

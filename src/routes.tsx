@@ -6,10 +6,6 @@ import { LoginPage } from "./pages/auth/LoginPage"
 import { RequestResetPassword } from "./pages/auth/RequestResetPassword"
 import { RegisterPage } from "./pages/auth/RegisterPage"
 import Admin from "./pages/auth/components/Admin"
-import DirectoriesPage from "./pages/marketplace/components/DirectoriesPage"
-import EditlistModal from "./pages/marketplace/components/catalog/EditlistModal"
-import MarketplaceListPage from "./pages/marketplace/components/MarketplaceListPage"
-
 const Routes = () => {
   const { page } = useAnalytics()
   const location = useLocation()

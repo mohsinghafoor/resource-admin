@@ -3,16 +3,14 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react"
 import { Button, useDisclosure } from "@chakra-ui/react"
-import DirectoriesPage from "../DirectoriesPage"
 import { ListingDirectory } from "../ListingDirectory"
 
-function EditlistModal() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+function EditlistModal({ isOpen, onClose, ...rest }: any) {
+  const { onOpen } = useDisclosure()
   return (
     <>
       <Button
@@ -36,13 +34,6 @@ function EditlistModal() {
           <ModalBody>
             <ListingDirectory />
           </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </>

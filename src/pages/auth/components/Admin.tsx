@@ -12,7 +12,6 @@ function Admin() {
       </GridItem>
       <GridItem colSpan={7} w="full" h="full">
         <Catalog />
-        {/* <DirectoriesPage/> */}
       </GridItem>
     </Grid>
   )

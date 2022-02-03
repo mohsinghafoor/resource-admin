@@ -8,7 +8,6 @@ import {
   MenuList,
   Text,
 } from "@chakra-ui/react"
-import React from "react"
 import { useRecoilState, useRecoilValue } from "recoil"
 import { FulfillmentTypeIcon, ListingTypeIcon } from "../../../components/ListingIcons"
 import { MenuButton } from "../../../components/Menu"

@@ -1,6 +1,6 @@
 import { Box, Container, Flex, Spinner, SpinnerProps, Stack } from "@chakra-ui/react"
-import { faCommentDollar } from "@fortawesome/free-solid-svg-icons"
-import React, { useEffect } from "react"
+
+import { useEffect } from "react"
 import { useHistory } from "react-router"
 import { useRecoilState } from "recoil"
 import Pagination from "../../../components/Pagination"
@@ -24,7 +24,7 @@ export const ListingDirectory = () => {
     const params = new URLSearchParams(location.search)
     const page = parseInt(params.get("page") ?? "0")
     console.log(page)
-    // if (!page) return history.replace({ search: `?page=1` })
+
     setPagination((prevState) => ({ ...prevState, page }))
     tabsRef?.scrollIntoView() // scroll to top on component mount
   })
@@ -63,7 +63,6 @@ export const ListingDirectory = () => {
       <PurpleBackdrop bgColor={{ base: "white", sm: "primary.softTransparent" }}>
         <Container maxW="container.xl" px={{ base: 0, md: 6 }}>
           <DirectoryGrid
-            type="listing"
             total={total}
             current={page}
             called={called}

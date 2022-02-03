@@ -9,7 +9,6 @@ export function ImageUpload({ handleImage }) {
   const maxNumber = 69
 
   const onChange = (imageList: ImageListType, addUpdateIndex: number[] | undefined) => {
-    console.log(imageList, addUpdateIndex)
     setImages(imageList as never[])
     handleImage(imageList)
   }

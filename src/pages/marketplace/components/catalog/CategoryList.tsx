@@ -2,7 +2,6 @@ import { Box, BoxProps, SimpleGrid, VStack } from "@chakra-ui/layout"
 import { ButtonProps, Heading } from "@chakra-ui/react"
 import { faArrowRight, faGlobeAmericas } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useHistory } from "react-router"
 import Button from "../../../../components/Button"
 import {
   FaBullhorn,
@@ -20,7 +19,6 @@ import {
   FaUtensils,
   FaCashRegister,
 } from "react-icons/fa"
-import { baseThumbnailStyles } from "./foundations"
 const Data = [
   { icon: <FaBullhorn />, text: "advertising & Marketing" },
   { icon: <FaCar />, text: "Automtive" },
@@ -40,7 +38,6 @@ const Data = [
 ]
 
 const CategoryList = ({ ...rest }: BoxProps) => {
-  const history = useHistory()
   return (
     <VStack overflowX="visible" align="flex-start" {...rest} pl={5} py={4} w="full">
       <Heading className="heading" fontSize="36px" color="gray.900" py={4}>

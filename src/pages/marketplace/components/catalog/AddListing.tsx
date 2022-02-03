@@ -11,65 +11,15 @@ import {
 } from "@chakra-ui/react"
 import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useRef } from "react"
-import { useParams } from "react-router-dom"
-import SplashPage from "../../components/SplashPage"
-import { Business, Listing, useFindBusinessByHandleQuery } from "../../generated/graphql"
-import { cardStyles } from "../marketplace/components/BusinessCard"
-import EditlistModal from "../marketplace/components/catalog/EditlistModal"
-import { ListingCard } from "../marketplace/components/ListingCard"
-import EditListingModal from "./components/EditListingModal"
+import { cardStyles } from "../BusinessCard"
+import EditlistModal from "./EditlistModal"
 
 export const coverStyles = {
   objectFit: "cover" as any,
   h: { base: "120px", md: "300px" },
   w: "full",
 }
-
-export const StorefrontPage = () => {
-  const { listings, loading } = useGetStorefrontData()
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  if (loading) {
-    return <SplashPage />
-  }
-
-  return (
-    <Box ref={containerRef}>
-      <ListingList listings={listings} />
-    </Box>
-  )
-}
-
-interface Props extends BoxProps {
-  listings: Listing[]
-}
-
-export const ListingList = ({ listings, ...rest }: any) => {
-  return (
-    <>
-      <Box {...rest} w="216px" h="300px">
-        {<AddListingCard />}
-        {listings?.map((listing, index) => (
-          <ListingCard data-testid="listing_card" key={index} listing={listing} />
-        ))}
-      </Box>
-    </>
-  )
-}
-
-const useGetStorefrontData = () => {
-  const { handle } = useParams<{ handle: string }>()
-  const { data, ...rest } = useFindBusinessByHandleQuery({ variables: { handle } })
-
-  const fetchedBusiness = (data?.findOneBusinessByHandle ?? {}) as Business
-
-  const listings = (fetchedBusiness?.listings ?? []) as Listing[]
-
-  return { listings, ...rest }
-}
-
-export const AddListingCard = ({ ...rest }: BoxProps) => {
+export const AddListing = ({ ...rest }: BoxProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const isMobile = useBreakpointValue({ base: true, sm: false })
@@ -103,6 +53,7 @@ export const AddListingCard = ({ ...rest }: BoxProps) => {
         {...cardStyles}
         rounded="12px"
         h="301px"
+        w="216px"
         p={4}
         shadow="none"
         cursor="pointer"
@@ -125,7 +76,7 @@ export const AddListingCard = ({ ...rest }: BoxProps) => {
           <FontAwesomeIcon color="gray" icon={faPlus} />
         </Flex>
       </VStack>
-      {isOpen && <EditListingModal isOpen={isOpen} onClose={onClose} />}
+      {isOpen && <EditlistModal isOpen={isOpen} onClose={onClose} />}
     </>
   )
 }

@@ -1,13 +1,11 @@
-import { Text, Stack, Heading, HStack, VStack, Box, Center, AspectRatio } from "@chakra-ui/layout"
-import { Image } from "@chakra-ui/react"
+import { Heading, HStack, VStack, Box } from "@chakra-ui/layout"
 import React from "react"
 import bg5 from "../../assets/bg5.png"
 import bg6 from "../../assets/bg6.png"
 import bg7 from "../../assets/bg7.png"
 import "./style.css"
-import { baseThumbnailStyles } from "./foundations"
+import { baseThumbnailStyles } from "./SharedStyles"
 import CloudinaryImage from "../../../../components/CloudinaryImage"
-import EditlistModal from "./EditlistModal"
 const Data = [
   { bgImg: bg5, text: "Finance" },
   { bgImg: bg6, text: "Holistic Healing" },

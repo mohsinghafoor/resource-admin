@@ -1,7 +1,7 @@
 import { SearchIcon } from "@chakra-ui/icons"
 import { Box, BoxProps, Input, InputGroup, InputLeftElement } from "@chakra-ui/react"
 import { debounce } from "lodash"
-import React, { useCallback, useState } from "react"
+import { useCallback, useState } from "react"
 import { useSetRecoilState } from "recoil"
 import { businessQuerySelector } from "../../../store/business"
 

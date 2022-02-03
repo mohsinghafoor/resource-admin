@@ -1,0 +1,60 @@
+.rfipbtn {
+  width: 30px !important;
+  background-color: transparent !important;
+  display: flex;
+  flex-flow: row nowrap;
+  border: none !important;
+  border-radius: o !important;
+  cursor: pointer;
+  transition: none !important;
+  outline: 0 none;
+  user-select: none;
+  margin-left: -17px;
+  &--empty {
+    display: none !important;
+  }
+
+  &__icon {
+    display: none !important;
+  }
+  &--open {
+    display: none !important;
+  }
+  &__icon {
+    display: none !important;
+  }
+  &__del {
+    display: none !important;
+  }
+  &__button {
+    display: none !important;
+  }
+}
+.rfipbtn__current {
+  display: none !important;
+}
+
+.rfipcategory {
+  width: 100%;
+
+  margin: 0 0 8px;
+  position: relative;
+}
+
+.rfip {
+  position: relative;
+  display: inline-block;
+  margin: 8px;
+  width: 15px;
+
+  vertical-align: middle;
+}
+
+.rfipdropdown {
+  width: 352px;
+  position: absolute;
+  left: -330px !important;
+  margin-top: -1px;
+  z-index: 100000001;
+  border-radius: 0 1px 4px 4px;
+}

@@ -12,7 +12,7 @@ import amm from "../../assets/ammount.png"
 
 import "./style.css"
 import { FaShare, FaRegHeart } from "react-icons/fa"
-import { ListingList } from "../../../storefront/StorefrontPage"
+import { addListStyles } from "./SharedStyles"
 const Data = [
   {
     logo: crypto1,
@@ -76,7 +76,7 @@ const CryptoList = ({ ...rest }: BoxProps) => {
   )
 }
 
-const Thumbnail = (props) => {
+export const Thumbnail = (props) => {
   const { title, text, logo, img, ammount } = props
   return (
     <Flex
@@ -120,12 +120,6 @@ const Thumbnail = (props) => {
       </Flex>
     </Flex>
   )
-}
-const addListStyles: BoxProps = {
-  fontWeight: "500",
-  borderRadius: "16px",
-  width: "236px",
-  height: "321px",
 }
 
 export default CryptoList

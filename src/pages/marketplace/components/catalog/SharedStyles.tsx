@@ -3,8 +3,6 @@ import { Link } from "react-router-dom"
 
 export const baseThumbnailStyles: BoxProps = {
   as: Link,
-  // cursor: "pointer",
-  // rounded: "2xl",
 }
 
 export const headingStyle: HeadingProps = {
@@ -21,4 +19,11 @@ export const headingStyle: HeadingProps = {
     border: "6px solid #699DFF",
   },
   fontWeight: "600",
+}
+
+export const addListStyles: BoxProps = {
+  fontWeight: "500",
+  borderRadius: "16px",
+  width: "236px",
+  height: "321px",
 }

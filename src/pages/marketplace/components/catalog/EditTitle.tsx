@@ -1,6 +1,5 @@
 import { ButtonProps, InputProps } from "@chakra-ui/react"
 import { HStack, VStack, IconButton, Input } from "@chakra-ui/react"
-import { useState } from "react"
 import { FaCheck, FaTimes } from "react-icons/fa"
 import "./style.css"
 const EditTitle = ({ setIsTitle, setIsEdit, setInputValue }: any) => {

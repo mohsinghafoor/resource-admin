@@ -1,7 +1,8 @@
 import { Badge, Box, Flex } from "@chakra-ui/layout"
-import { Heading, VStack } from "@chakra-ui/react"
+import { Heading } from "@chakra-ui/react"
 import CloudinaryImage from "../../../../components/CloudinaryImage"
 import featured from "../../assets/featured.jpg"
+import IconPicker from "./IconPicker"
 const FeaturedList = ({ ...rest }: any) => {
   return (
     <Box position="relative" {...rest} p={4} h={height} className="cursor" w="full">
@@ -22,6 +23,7 @@ const FeaturedList = ({ ...rest }: any) => {
         <Badge colorScheme="orange" variant="outline" px={2} py={1} rounded="md">
           FEATURED
         </Badge>
+        <IconPicker />
       </Box>
       <Flex
         bg="none"

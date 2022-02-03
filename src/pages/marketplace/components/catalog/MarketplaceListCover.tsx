@@ -5,13 +5,15 @@ import { useState } from "react"
 import { useHistory } from "react-router"
 import Button from "../../../../components/Button"
 import CloudinaryImage from "../../../../components/CloudinaryImage"
-import { MarketplaceList } from "../../../../generated/graphql"
 import { coverStyles } from "../../../storefront/StorefrontPage"
 import { catalogButtonStyles } from "./SearchBar"
 import cover from "../../assets/coverbg.png"
 import EditTitle from "./EditTitle"
 import HeaderButtons from "./HeaderButtons"
-import { FaPalette, FaPallet, FaRegImages } from "react-icons/fa"
+import IconPicker from "./IconPicker"
+import { useRecoilValue } from "recoil"
+import { iconAtom } from "../../../../store/listing"
+
 const MarketplaceListCover = ({ ...rest }: any) => {
   const history = useHistory()
   const [isEdit, setIsEdit] = useState(false)
@@ -26,6 +28,9 @@ const MarketplaceListCover = ({ ...rest }: any) => {
   const handleImage = (Images) => {
     setUrl(Images)
   }
+
+  const iconClass = useRecoilValue(iconAtom)
+  console.log("helllo-jan", iconClass)
   return (
     <Box {...coverStyles} {...rest} position="relative">
       <CloudinaryImage
@@ -68,7 +73,12 @@ const MarketplaceListCover = ({ ...rest }: any) => {
             />
           )}
         </VStack>
-        <FaPalette style={{ color: "white", fontSize: "28" }} />
+        <HStack>
+          <i className={iconClass} style={{ color: "white", fontSize: 28 }} aria-hidden="true"></i>
+          <Box ml="-20px" position="absolute" w="20px">
+            <IconPicker />
+          </Box>
+        </HStack>
       </HStack>
       <HStack w="full" justifyContent="flex-end" position="absolute" mt="-50px">
         <HeaderButtons ImageHandler={handleImage} />

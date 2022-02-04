@@ -1,5 +1,5 @@
 import { Box, SimpleGrid } from "@chakra-ui/layout"
-import { Container, useBreakpointValue } from "@chakra-ui/react"
+import { Container, useBreakpointValue, useDisclosure } from "@chakra-ui/react"
 import { useParams } from "react-router"
 import { PurpleBackdrop } from "../../../components/PurpleBackdrop"
 import SplashPage from "../../../components/SplashPage"
@@ -15,6 +15,10 @@ import img3 from "../assets/cryptoimg3.png"
 import img4 from "../assets/cryptoimg4.png"
 import { AddListing } from "./catalog/AddListing"
 import { Thumbnail } from "./catalog/CryptoList"
+import { useRecoilValue } from "recoil"
+import { cardDataAtom } from "../../../store/listing"
+import { useEffect, useState } from "react"
+import EditlistModal from "./catalog/EditlistModal"
 
 const Data = [
   {
@@ -52,37 +56,23 @@ const Data = [
     text: "Accounting Software Annual Subscription",
     ammount: "2,000.00",
   },
-  {
-    logo: crypto2,
-    title: "My Bear Hand",
-    img: img2,
-    text: "Accounting Software Annual Subscription",
-    ammount: "2,000.00",
-  },
-  {
-    logo: crypto2,
-    title: "My Bear Hand",
-    img: img2,
-    text: "Accounting Software Annual Subscription",
-    ammount: "2,000.00",
-  },
-  {
-    logo: crypto2,
-    title: "My Bear Hand",
-    img: img2,
-    text: "Accounting Software Annual Subscription",
-    ammount: "2,000.00",
-  },
 ]
 const MarketplaceListPage = () => {
+  const [cardData, setCardData]: any = useState(Data)
   const { id } = useParams<{ id: string }>()
   const { data, loading } = useFindMarketplaceListByIdQuery({ variables: { id } })
   const list = data?.findMarketplaceListById as MarketplaceList
   const listings = list?.listings ?? []
   const shouldShowBackdrop = useBreakpointValue({ base: false, sm: true })
+  const getCardData: any = useRecoilValue(cardDataAtom)
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  useEffect(() => {
+    if (getCardData) {
+      setCardData([...cardData, getCardData])
+    }
+  }, [getCardData])
 
   if (loading) return <SplashPage />
-
   return (
     <Box>
       <MarketplaceListCover list={list} />
@@ -90,19 +80,22 @@ const MarketplaceListPage = () => {
         <Container maxW="container.xl" p={0}>
           <SimpleGrid my="80px" mx="10px" columns={{ sm: 2, md: 3, lg: 4, xl: 5 }} spacing={3}>
             <AddListing />
-            {Data.map((card, index) => (
-              <Thumbnail
-                key={index}
-                title={card.title}
-                text={card.text}
-                logo={card.logo}
-                img={card.img}
-                ammount={card.ammount}
-              />
+            {cardData?.map((card, index) => (
+              <div key={index} onClick={onOpen}>
+                <Thumbnail
+                  key={index}
+                  title={card.title}
+                  text={card.text}
+                  logo={card.logo}
+                  img={card.img}
+                  ammount={card.ammount}
+                />
+              </div>
             ))}
           </SimpleGrid>
         </Container>
       </PurpleBackdrop>
+      {isOpen && <EditlistModal isOpen={isOpen} onClose={onClose} />}
     </Box>
   )
 }

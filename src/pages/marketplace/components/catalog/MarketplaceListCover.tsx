@@ -30,7 +30,6 @@ const MarketplaceListCover = ({ ...rest }: any) => {
   }
 
   const iconClass = useRecoilValue(iconAtom)
-  console.log("helllo-jan", iconClass)
   return (
     <Box {...coverStyles} {...rest} position="relative">
       <CloudinaryImage

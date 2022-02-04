@@ -52,7 +52,6 @@ const EditListingModal = ({ listing, isOpen, onClose, ...rest }: Props) => {
   useEffect(() => {
     setListingType(listing?.type || undefined)
   }, [listing])
-
   return (
     <Modal
       isOpen={isOpen}

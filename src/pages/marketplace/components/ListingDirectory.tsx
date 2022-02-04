@@ -23,11 +23,11 @@ export const ListingDirectory = () => {
   useEffect(() => {
     const params = new URLSearchParams(location.search)
     const page = parseInt(params.get("page") ?? "0")
-    console.log(page)
+    // console.log(page)
 
     setPagination((prevState) => ({ ...prevState, page }))
     tabsRef?.scrollIntoView() // scroll to top on component mount
-  })
+  }, [])
 
   return (
     <>

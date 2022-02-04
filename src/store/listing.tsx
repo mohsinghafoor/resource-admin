@@ -32,6 +32,16 @@ export const iconAtom = atom({
   default: "fa fa-area-chart",
 })
 
+export const cardDataAtom = atom({
+  key: "cardDataAtom",
+  default: "",
+})
+
+export const onCloseAtom = atom({
+  key: "onCloseAtom",
+  default: false,
+})
+
 export const listingQuerySelector = selector<ListingQueryOptions>({
   key: "listingQuerySelector",
   get: ({ get }) => get(listingAtom).queryOptions,

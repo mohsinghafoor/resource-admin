@@ -15,10 +15,11 @@ import img3 from "../assets/cryptoimg3.png"
 import img4 from "../assets/cryptoimg4.png"
 import { AddListing } from "./catalog/AddListing"
 import { Thumbnail } from "./catalog/CryptoList"
-import { useRecoilValue } from "recoil"
-import { cardDataAtom } from "../../../store/listing"
+import { useRecoilValue, useSetRecoilState } from "recoil"
+import { cardDataAtom, replaceCardAtom } from "../../../store/listing"
 import { useEffect, useState } from "react"
 import EditlistModal from "./catalog/EditlistModal"
+import { CountdownCircleTimer } from "react-countdown-circle-timer"
 
 const Data = [
   {
@@ -65,13 +66,20 @@ const MarketplaceListPage = () => {
   const listings = list?.listings ?? []
   const shouldShowBackdrop = useBreakpointValue({ base: false, sm: true })
   const getCardData: any = useRecoilValue(cardDataAtom)
+  const setReplaceCard: any = useSetRecoilState(replaceCardAtom)
+
   const { isOpen, onOpen, onClose } = useDisclosure()
   useEffect(() => {
-    if (getCardData) {
+    if (getCardData && !getCardData.replaceCard) {
       setCardData([...cardData, getCardData])
+    } else if (getCardData && getCardData.replaceCard) {
+      cardData[getCardData.replaceCard] = getCardData
     }
   }, [getCardData])
-
+  const handleClickCard = (index) => {
+    onOpen()
+    setReplaceCard(index)
+  }
   if (loading) return <SplashPage />
   return (
     <Box>
@@ -81,7 +89,7 @@ const MarketplaceListPage = () => {
           <SimpleGrid my="80px" mx="10px" columns={{ sm: 2, md: 3, lg: 4, xl: 5 }} spacing={3}>
             <AddListing />
             {cardData?.map((card, index) => (
-              <div key={index} onClick={onOpen}>
+              <div key={index} onClick={() => handleClickCard(index)}>
                 <Thumbnail
                   key={index}
                   title={card.title}

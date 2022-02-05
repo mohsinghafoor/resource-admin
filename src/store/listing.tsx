@@ -36,7 +36,10 @@ export const cardDataAtom = atom({
   key: "cardDataAtom",
   default: "",
 })
-
+export const replaceCardAtom = atom({
+  key: "replaceCardAtom",
+  default: "",
+})
 export const onCloseAtom = atom({
   key: "onCloseAtom",
   default: false,

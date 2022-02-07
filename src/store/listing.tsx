@@ -45,6 +45,14 @@ export const closeModalAtom = atom({
   default: false,
 })
 
+export const removeListingAtom = atom({
+  key: "removeListingAtom",
+  default: {
+    state: false,
+    index: [""],
+  },
+})
+
 export const listingQuerySelector = selector<ListingQueryOptions>({
   key: "listingQuerySelector",
   get: ({ get }) => get(listingAtom).queryOptions,

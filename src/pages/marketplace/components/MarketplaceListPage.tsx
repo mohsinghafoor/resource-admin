@@ -16,7 +16,12 @@ import img4 from "../assets/cryptoimg4.png"
 import { AddListing } from "./catalog/AddListing"
 import { Thumbnail } from "./catalog/CardUi"
 import { useRecoilValue, useSetRecoilState } from "recoil"
-import { cardDataAtom, closeModalAtom, replaceCardAtom } from "../../../store/listing"
+import {
+  cardDataAtom,
+  closeModalAtom,
+  removeListingAtom,
+  replaceCardAtom,
+} from "../../../store/listing"
 import { useEffect, useState } from "react"
 import EditlistModal from "./catalog/EditlistModal"
 
@@ -70,6 +75,8 @@ const MarketplaceListPage = () => {
   const replaceCard = useRecoilValue(replaceCardAtom)
   const setCloseModal = useSetRecoilState(closeModalAtom)
   const closeModal = useRecoilValue(closeModalAtom)
+  const setRemoveListing = useSetRecoilState(removeListingAtom)
+  const removeListing = useRecoilValue(removeListingAtom)
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   useEffect(() => {
@@ -81,6 +88,13 @@ const MarketplaceListPage = () => {
       setReplaceCard("")
       onClose()
     }
+    // else if (removeListing.index >= "0" && removeListing.state) {
+    //   setCardData(cardData.filter((card, index) => removeListing.index !== index))
+    //   setRemoveListing({
+    //     state: false,
+    //     index: "",
+    //   })
+    // }
   }, [getCardData])
 
   const handleClickCard = (index) => {
@@ -106,6 +120,7 @@ const MarketplaceListPage = () => {
                   logo={card.logo}
                   img={card.img}
                   ammount={card.ammount}
+                  index={index}
                 />
               </Box>
             ))}

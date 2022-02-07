@@ -16,7 +16,7 @@ import img4 from "../assets/cryptoimg4.png"
 import { AddListing } from "./catalog/AddListing"
 import { Thumbnail } from "./catalog/CryptoList"
 import { useRecoilValue, useSetRecoilState } from "recoil"
-import { cardDataAtom, replaceCardAtom } from "../../../store/listing"
+import { cardDataAtom, closeModalAtom, replaceCardAtom } from "../../../store/listing"
 import { useEffect, useState } from "react"
 import EditlistModal from "./catalog/EditlistModal"
 
@@ -57,6 +57,7 @@ const Data = [
     ammount: "2,000.00",
   },
 ]
+
 const MarketplaceListPage = () => {
   const [cardData, setCardData]: any = useState(Data)
   const { id } = useParams<{ id: string }>()
@@ -67,19 +68,26 @@ const MarketplaceListPage = () => {
   const getCardData: any = useRecoilValue(cardDataAtom)
   const setReplaceCard: any = useSetRecoilState(replaceCardAtom)
   const replaceCard = useRecoilValue(replaceCardAtom)
+  const setCloseModal = useSetRecoilState(closeModalAtom)
+  const closeModal = useRecoilValue(closeModalAtom)
   const { isOpen, onOpen, onClose } = useDisclosure()
+
   useEffect(() => {
     if (getCardData && replaceCard === "") {
       setCardData([...cardData, getCardData])
+      setCloseModal(true)
     } else if (getCardData && replaceCard >= "0") {
       cardData[parseInt(replaceCard)] = getCardData
       setReplaceCard("")
+      onClose()
     }
   }, [getCardData])
+
   const handleClickCard = (index) => {
     onOpen()
     setReplaceCard(index)
   }
+
   if (loading) return <SplashPage />
   return (
     <Box>

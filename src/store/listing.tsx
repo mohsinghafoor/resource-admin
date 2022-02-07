@@ -40,8 +40,8 @@ export const replaceCardAtom = atom({
   key: "replaceCardAtom",
   default: "",
 })
-export const onCloseAtom = atom({
-  key: "onCloseAtom",
+export const closeModalAtom = atom({
+  key: "closeModalAtom",
   default: false,
 })
 

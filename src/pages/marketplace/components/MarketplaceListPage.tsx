@@ -1,5 +1,5 @@
-import { Box, SimpleGrid } from "@chakra-ui/layout"
-import { Container, useBreakpointValue, useDisclosure } from "@chakra-ui/react"
+import { Box, SimpleGrid, Stack, Center, Text, VStack } from "@chakra-ui/layout"
+import { Button, Container, useBreakpointValue, useDisclosure } from "@chakra-ui/react"
 import { useParams } from "react-router"
 import { PurpleBackdrop } from "../../../components/PurpleBackdrop"
 import SplashPage from "../../../components/SplashPage"
@@ -14,12 +14,13 @@ import img2 from "../assets/cryptoimg2.png"
 import img3 from "../assets/cryptoimg3.png"
 import img4 from "../assets/cryptoimg4.png"
 import { AddListing } from "./catalog/AddListing"
-import { Thumbnail } from "./catalog/CryptoList"
+import { Thumbnail } from "./catalog/CardUi"
 import { useRecoilValue, useSetRecoilState } from "recoil"
 import { cardDataAtom, replaceCardAtom } from "../../../store/listing"
 import { useEffect, useState } from "react"
 import EditlistModal from "./catalog/EditlistModal"
 import { CountdownCircleTimer } from "react-countdown-circle-timer"
+import { FaTrash } from "react-icons/fa"
 
 const Data = [
   {
@@ -81,6 +82,7 @@ const MarketplaceListPage = () => {
     setReplaceCard(index)
   }
   if (loading) return <SplashPage />
+
   return (
     <Box>
       <MarketplaceListCover list={list} />
@@ -89,7 +91,7 @@ const MarketplaceListPage = () => {
           <SimpleGrid my="80px" mx="10px" columns={{ sm: 2, md: 3, lg: 4, xl: 5 }} spacing={3}>
             <AddListing />
             {cardData?.map((card, index) => (
-              <div key={index} onClick={() => handleClickCard(index)}>
+              <Box key={index} onClick={() => handleClickCard(index)}>
                 <Thumbnail
                   key={index}
                   title={card.title}
@@ -98,7 +100,7 @@ const MarketplaceListPage = () => {
                   img={card.img}
                   ammount={card.ammount}
                 />
-              </div>
+              </Box>
             ))}
           </SimpleGrid>
         </Container>

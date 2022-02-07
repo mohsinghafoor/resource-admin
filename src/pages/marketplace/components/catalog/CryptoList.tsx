@@ -1,5 +1,5 @@
-import { Box, BoxProps, Flex, VStack, HStack, Spacer, Stack } from "@chakra-ui/layout"
-import { Heading, Image, Text } from "@chakra-ui/react"
+import { Box, BoxProps, Flex, VStack, HStack, Spacer, Stack, Center } from "@chakra-ui/layout"
+import { Button, Heading, Image, Text } from "@chakra-ui/react"
 import crypto1 from "../../assets/crypto1.png"
 import crypto2 from "../../assets/crypto2.png"
 import crypto3 from "../../assets/crypto3.png"
@@ -11,8 +11,8 @@ import img4 from "../../assets/cryptoimg4.png"
 import amm from "../../assets/ammount.png"
 
 import "./style.css"
-import { FaShare, FaRegHeart } from "react-icons/fa"
-import { addListStyles } from "./SharedStyles"
+
+import { Thumbnail } from "./CardUi"
 const Data = [
   {
     logo: crypto1,
@@ -73,52 +73,6 @@ const CryptoList = ({ ...rest }: BoxProps) => {
         </HStack>
       </Box>
     </VStack>
-  )
-}
-
-export const Thumbnail = (props) => {
-  const { title, text, logo, img, ammount } = props
-  return (
-    <Flex
-      className="cursor"
-      direction="column"
-      border="12px solid transparent"
-      fontWeight="500"
-      p="2"
-      _hover={{
-        border: "12px solid #699DFF",
-      }}
-      {...addListStyles}
-    >
-      <Stack bgImage={img} h="200px" borderRadius="8px">
-        <HStack w="150px" h="40px" bg="rgba(255, 255, 255, 0.9)" borderRadius="8px 0px" px="1">
-          <Image src={logo} alt="" />
-          <Text fontSize="14px">{title}</Text>
-        </HStack>
-      </Stack>
-
-      <Text fontSize="14px" mt="4" h="50px">
-        {text}
-      </Text>
-      <Flex align="center" px="1">
-        <FaShare style={{ marginRight: 20, color: "#595959" }} />
-        <FaRegHeart />
-        <Spacer />
-        <HStack
-          borderRadius="16px"
-          border="1px solid gray"
-          w="100px"
-          h="30px"
-          fontFamily="Courier Prime"
-          justifyContent="center"
-        >
-          <Text color="black">{ammount}</Text>
-          <Box bg="gray" borderRadius="20px">
-            <Image src={amm} alt="" w="10px" />
-          </Box>
-        </HStack>
-      </Flex>
-    </Flex>
   )
 }
 

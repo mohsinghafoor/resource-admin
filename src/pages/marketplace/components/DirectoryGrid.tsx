@@ -1,7 +1,7 @@
 import { GridItem, SimpleGrid, useDisclosure } from "@chakra-ui/react"
 import { EndOfResults } from "../../../components/EndOfResults"
 import { NoSearchResults } from "../../../components/NoSearchResults"
-import { Thumbnail } from "./catalog/CryptoList"
+import { Thumbnail } from "./catalog/CardUi"
 import crypto1 from "../assets/crypto1.png"
 import crypto2 from "../assets/crypto2.png"
 import crypto3 from "../assets/crypto3.png"

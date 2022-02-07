@@ -19,7 +19,6 @@ import { useRecoilValue, useSetRecoilState } from "recoil"
 import { cardDataAtom, replaceCardAtom } from "../../../store/listing"
 import { useEffect, useState } from "react"
 import EditlistModal from "./catalog/EditlistModal"
-import { CountdownCircleTimer } from "react-countdown-circle-timer"
 
 const Data = [
   {
@@ -67,13 +66,14 @@ const MarketplaceListPage = () => {
   const shouldShowBackdrop = useBreakpointValue({ base: false, sm: true })
   const getCardData: any = useRecoilValue(cardDataAtom)
   const setReplaceCard: any = useSetRecoilState(replaceCardAtom)
-
+  const replaceCard = useRecoilValue(replaceCardAtom)
   const { isOpen, onOpen, onClose } = useDisclosure()
   useEffect(() => {
-    if (getCardData && !getCardData.replaceCard) {
+    if (getCardData && replaceCard === "") {
       setCardData([...cardData, getCardData])
-    } else if (getCardData && getCardData.replaceCard) {
-      cardData[getCardData.replaceCard] = getCardData
+    } else if (getCardData && replaceCard >= "0") {
+      cardData[parseInt(replaceCard)] = getCardData
+      setReplaceCard("")
     }
   }, [getCardData])
   const handleClickCard = (index) => {

@@ -10,10 +10,8 @@ import img1 from "../assets/cryptoimg1.png"
 import img2 from "../assets/cryptoimg2.png"
 import img3 from "../assets/cryptoimg3.png"
 import img4 from "../assets/cryptoimg4.png"
-import { useRecoilValue, useSetRecoilState } from "recoil"
-import { cardDataAtom, onCloseAtom, replaceCardAtom } from "../../../store/listing"
-import { useState } from "react"
-import { on } from "events"
+import { useSetRecoilState } from "recoil"
+import { cardDataAtom } from "../../../store/listing"
 
 const Data = [
   {
@@ -57,7 +55,6 @@ export const DirectoryGrid = ({ items, total, current, pageSize, called, loading
   const isLastPage = Math.ceil(total / pageSize) === current
 
   const { onClose } = useDisclosure()
-  const replaceCard = useRecoilValue(replaceCardAtom)
   const setCardData: any = useSetRecoilState(cardDataAtom)
   const handleClickCard = (title, text, logo, img, amount) => {
     const cardData = {
@@ -66,8 +63,8 @@ export const DirectoryGrid = ({ items, total, current, pageSize, called, loading
       logo: logo,
       img: img,
       ammount: amount,
-      replaceCard: replaceCard,
     }
+
     setCardData(cardData)
     onClose()
   }

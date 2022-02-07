@@ -11,6 +11,9 @@ import {
 } from "@chakra-ui/react"
 import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useEffect } from "react"
+import { useRecoilValue, useSetRecoilState } from "recoil"
+import { closeModalAtom } from "../../../../store/listing"
 import { cardStyles } from "../BusinessCard"
 import EditlistModal from "./EditlistModal"
 
@@ -23,7 +26,15 @@ export const AddListing = ({ ...rest }: BoxProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const isMobile = useBreakpointValue({ base: true, sm: false })
+  const closeModal = useRecoilValue(closeModalAtom)
+  const setCloseModal = useSetRecoilState(closeModalAtom)
 
+  useEffect(() => {
+    if (closeModal) {
+      onClose()
+      setCloseModal(false)
+    }
+  }, [closeModal])
   if (isMobile)
     return (
       <HStack

@@ -75,7 +75,7 @@ export const Thumbnail = (props) => {
       </Flex>
       <HStack
         pos="absolute"
-        className="cursor"
+        className="cursorpointer"
         w="185px"
         h="97px"
         mt="-250px"

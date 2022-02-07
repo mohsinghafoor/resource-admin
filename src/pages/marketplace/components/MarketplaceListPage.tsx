@@ -1,5 +1,5 @@
-import { Box, SimpleGrid, Stack, Center, Text, VStack } from "@chakra-ui/layout"
-import { Button, Container, useBreakpointValue, useDisclosure } from "@chakra-ui/react"
+import { Box, SimpleGrid } from "@chakra-ui/layout"
+import { Container, useBreakpointValue, useDisclosure } from "@chakra-ui/react"
 import { useParams } from "react-router"
 import { PurpleBackdrop } from "../../../components/PurpleBackdrop"
 import SplashPage from "../../../components/SplashPage"
@@ -19,8 +19,6 @@ import { useRecoilValue, useSetRecoilState } from "recoil"
 import { cardDataAtom, closeModalAtom, replaceCardAtom } from "../../../store/listing"
 import { useEffect, useState } from "react"
 import EditlistModal from "./catalog/EditlistModal"
-import { CountdownCircleTimer } from "react-countdown-circle-timer"
-import { FaTrash } from "react-icons/fa"
 
 const Data = [
   {

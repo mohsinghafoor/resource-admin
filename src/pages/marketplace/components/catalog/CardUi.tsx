@@ -1,17 +1,15 @@
-import { Box, Flex, VStack, HStack, Spacer, Stack, Center } from "@chakra-ui/layout"
+import { Box, Flex, HStack, Spacer, Stack } from "@chakra-ui/layout"
 import { Button, Image, Text } from "@chakra-ui/react"
-
 import amm from "../../assets/ammount.png"
-
 import "./style.css"
 import { FaShare, FaRegHeart, FaTrash } from "react-icons/fa"
 import { addListStyles } from "./SharedStyles"
 import { useState } from "react"
-import { useRecoilValue, useSetRecoilState } from "recoil"
-
+import { useLocation } from "react-router-dom"
 export const Thumbnail = (props) => {
   const [remove, setRemove] = useState(false)
   const [hover, setHover] = useState(false)
+  const location = useLocation()
   const handleRemove = (e) => {
     e.stopPropagation()
     setRemove(true)
@@ -20,7 +18,7 @@ export const Thumbnail = (props) => {
   return (
     <>
       <Flex
-        className="cursor"
+        className="cursorpointer"
         direction="column"
         w="full"
         opacity={remove ? "0.25" : "1"}
@@ -62,6 +60,7 @@ export const Thumbnail = (props) => {
         </Flex>
       </Flex>
       <HStack
+        className="cursorpointer"
         pos="absolute"
         w="185px"
         h="97px"
@@ -76,9 +75,11 @@ export const Thumbnail = (props) => {
         </Text>
       </HStack>
       <Button
+        display={location.pathname === "/list/edit" ? "block" : "none"}
+        className="cursor"
         pos="absolute"
         mt="-55px"
-        ml="25px"
+        ml="30px"
         leftIcon={<FaTrash />}
         bg="transparent"
         h="37px"

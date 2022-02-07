@@ -1,8 +1,15 @@
 .cursor {
-  cursor: url("../../assets/cursor.png") 4 12, pointer;
+  cursor: url("../../assets/cursor.png") 4 12, auto;
 }
 .heading {
   cursor: url("../../assets/icursor.png"), pointer;
+}
+.cursorpointer {
+  cursor: url("../../assets/cursorpointer.png"), pointer;
+}
+.grabbing {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
 }
 .css-17sthuj {
   display: none !important;

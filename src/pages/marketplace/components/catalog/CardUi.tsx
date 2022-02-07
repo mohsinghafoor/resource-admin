@@ -8,15 +8,27 @@ import { FaShare, FaRegHeart, FaTrash } from "react-icons/fa"
 import { addListStyles } from "./SharedStyles"
 import { useState } from "react"
 import { useRecoilValue, useSetRecoilState } from "recoil"
+import { removeListingAtom } from "../../../../store/listing"
 
 export const Thumbnail = (props) => {
+  const { title, text, logo, img, ammount, index } = props
+
   const [remove, setRemove] = useState(false)
   const [hover, setHover] = useState(false)
+  const [removedListing, setRemovedListing]: any = useState([])
+  const setRemoveListing = useSetRecoilState(removeListingAtom)
+  const removeListing = useRecoilValue(removeListingAtom)
+
   const handleRemove = (e) => {
     e.stopPropagation()
+    setRemovedListing([...removedListing, index])
+    setRemoveListing({
+      state: true,
+      index: [removedListing],
+    })
     setRemove(true)
   }
-  const { title, text, logo, img, ammount } = props
+
   return (
     <>
       <Flex
@@ -63,6 +75,7 @@ export const Thumbnail = (props) => {
       </Flex>
       <HStack
         pos="absolute"
+        className="cursor"
         w="185px"
         h="97px"
         mt="-250px"

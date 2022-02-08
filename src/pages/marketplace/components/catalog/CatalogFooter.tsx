@@ -1,5 +1,4 @@
-import { Box, BoxProps, Heading, VStack, Stack } from "@chakra-ui/layout"
-import { ButtonProps } from "@chakra-ui/react"
+import { Box, BoxProps, Heading, Stack } from "@chakra-ui/layout"
 import { useState } from "react"
 import CloudinaryImage from "../../../../components/CloudinaryImage"
 import { Catalog } from "../../../../generated/graphql"
@@ -64,12 +63,11 @@ const CatalogFooter = ({ catalog, ...rest }: any) => {
           >
             {inputValue}
           </Heading>
-          {/* {isEdit ? "block" : "none"} */}
         </Stack>
         <Box>
           <SearchBar />
         </Box>
-        {/* </VStack> */}
+
         <Stack justifyContent="flex-end" alignItems="flex-end" w="full" pos="absolute" mt="330px">
           <HeaderButtons ImageHandler={handleImage} />
         </Stack>
@@ -89,14 +87,6 @@ const CatalogFooter = ({ catalog, ...rest }: any) => {
 const height = {
   base: "190px",
   md: "400px",
-}
-
-const searchButtonStyles: ButtonProps = {
-  bgColor: "white",
-  variant: "outline",
-  colorScheme: "purple",
-  _hover: { shadow: "md" },
-  _active: { bg: "gray.300" },
 }
 
 export default CatalogFooter

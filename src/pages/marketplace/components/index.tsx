@@ -7,12 +7,6 @@ import Lists from "./Lists"
 import { useLocation } from "react-router-dom"
 import MarketplaceListPage from "./MarketplaceListPage"
 import DirectoriesPage from "./DirectoriesPage"
-import { StatefulList } from "baseui/dnd-list"
-import FourWideList from "./catalog/FourWideList"
-import ThreeWideList from "./catalog/ThreeWideList"
-import FeaturedList from "./catalog/FeaturedList"
-import CategoryList from "./catalog/CategoryList"
-import CryptoList from "./catalog/CryptoList"
 
 function Catalog() {
   const location = useLocation()
@@ -34,22 +28,11 @@ function Catalog() {
   }
   return (
     <Box w="full">
-      <CatalogHeader />,
-      <CatalogCover key="1" />,
-      <StatefulList
-        initialState={{
-          items: [
-            // <Lists key="3" />,
-            <FourWideList key="2" />,
-            <ThreeWideList key="3" />,
-            <FeaturedList key="4" />,
-            <CategoryList key="5" />,
-            <CryptoList key="6" />,
-            <CatalogFooter key="7" />,
-          ],
-        }}
-      />
-      {/* <CatalogFooter key="7" />, */}
+      <CatalogHeader />
+      <CatalogCover />
+      <Lists />
+      <Categories />
+      <CatalogFooter />
     </Box>
   )
 }

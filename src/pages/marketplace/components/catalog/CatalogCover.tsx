@@ -1,4 +1,4 @@
-import { Box, BoxProps, Heading, VStack, Stack } from "@chakra-ui/layout"
+import { Box, BoxProps, Heading, Stack } from "@chakra-ui/layout"
 import CloudinaryImage from "../../../../components/CloudinaryImage"
 import { Catalog } from "../../../../generated/graphql"
 import SearchBar from "./SearchBar"
@@ -25,67 +25,9 @@ const CatalogCover = ({ catalog, ...rest }: any) => {
     setUrl(Images)
   }
   return (
-    // <Stack alignItems="center" justifyContent="center">
-    //   <Stack {...coverStyles} {...rest} position="relative" justify="center">
-    //     <CloudinaryImage
-    //       {...coverStyles}
-    //       position="absolute"
-    //       zIndex={-2}
-    //       quality="good"
-    //       src={url}
-    //       filter="brightness(50%)"
-    //     />
-    //     <VStack
-    //       p={4}
-    //       w="full"
-    //       position="absolute"
-    //       zIndex={1}
-    //       spacing={6}
-    //       justify="center"
-    //       height={height}
-    //     >
-    //       <Stack
-    //         // minH="50px"
-    //         maxH="70px"
-    //         alignItems="center"
-    //         justifyContent="flex-start"
-    //         w="600px"
-    //       >
-    //         <Heading
-    //           color={isTitle ? "black" : "transparent"}
-    //           className="heading"
-    //           {...headingStyle}
-    //           onClick={handleEdit}
-    //         >
-    //           {inputValue}
-    //         </Heading>
-    //       </Stack>
-    //       <Box>
-    //         <SearchBar />
-    //       </Box>
-    //       <Stack
-    //         justifyContent="flex-end"
-    //         w="full"
-    //         alignSelf="flex-end"
-    //         justifySelf="flex-end"
-    //         pb="50px"
-    //       >
-    //         <HeaderButtons ImageHandler={handleImage} />
-    //       </Stack>
-    //     </VStack>
-    //   </Stack>
-    //   <Box display={isEdit ? "block" : "none"} w="600px" pos="absolute" pb="120px">
-    //     <EditTitle
-    //       setIsTitle={setIsTitle}
-    //       isTitle={isTitle}
-    //       setIsEdit={setIsEdit}
-    //       setInputValue={setInputValue}
-    //     />
-    //   </Box>
-    // </Stack>
-
-    <Stack alignItems="center" justifyContent="center">
+    <Stack alignItems="center" justifyContent="center" mt="20px">
       <Stack
+        className="cursor"
         position="relative"
         p={4}
         h={height}

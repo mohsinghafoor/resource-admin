@@ -16,7 +16,6 @@ import img4 from "../assets/cryptoimg4.png"
 import { AddListing } from "./catalog/AddListing"
 import { Thumbnail } from "./catalog/CardUi"
 import { useRecoilValue, useSetRecoilState } from "recoil"
-import { StatefulList } from "baseui/dnd-list"
 import {
   cardDataAtom,
   closeModalAtom,
@@ -89,13 +88,6 @@ const MarketplaceListPage = () => {
       setReplaceCard("")
       onClose()
     }
-    // else if (removeListing.index >= "0" && removeListing.state) {
-    //   setCardData(cardData.filter((card, index) => removeListing.index !== index))
-    //   setRemoveListing({
-    //     state: false,
-    //     index: "",
-    //   })
-    // }
   }, [getCardData])
 
   const handleClickCard = (index) => {

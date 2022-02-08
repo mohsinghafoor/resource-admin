@@ -25,46 +25,120 @@ const CatalogCover = ({ catalog, ...rest }: any) => {
     setUrl(Images)
   }
   return (
-    <Box {...coverStyles} {...rest} position="relative">
-      <CloudinaryImage
-        {...coverStyles}
-        zIndex={-2}
-        quality="good"
-        src={url}
-        filter="brightness(50%)"
-      />
-      <VStack
+    // <Stack alignItems="center" justifyContent="center">
+    //   <Stack {...coverStyles} {...rest} position="relative" justify="center">
+    //     <CloudinaryImage
+    //       {...coverStyles}
+    //       position="absolute"
+    //       zIndex={-2}
+    //       quality="good"
+    //       src={url}
+    //       filter="brightness(50%)"
+    //     />
+    //     <VStack
+    //       p={4}
+    //       w="full"
+    //       position="absolute"
+    //       zIndex={1}
+    //       spacing={6}
+    //       justify="center"
+    //       height={height}
+    //     >
+    //       <Stack
+    //         // minH="50px"
+    //         maxH="70px"
+    //         alignItems="center"
+    //         justifyContent="flex-start"
+    //         w="600px"
+    //       >
+    //         <Heading
+    //           color={isTitle ? "black" : "transparent"}
+    //           className="heading"
+    //           {...headingStyle}
+    //           onClick={handleEdit}
+    //         >
+    //           {inputValue}
+    //         </Heading>
+    //       </Stack>
+    //       <Box>
+    //         <SearchBar />
+    //       </Box>
+    //       <Stack
+    //         justifyContent="flex-end"
+    //         w="full"
+    //         alignSelf="flex-end"
+    //         justifySelf="flex-end"
+    //         pb="50px"
+    //       >
+    //         <HeaderButtons ImageHandler={handleImage} />
+    //       </Stack>
+    //     </VStack>
+    //   </Stack>
+    //   <Box display={isEdit ? "block" : "none"} w="600px" pos="absolute" pb="120px">
+    //     <EditTitle
+    //       setIsTitle={setIsTitle}
+    //       isTitle={isTitle}
+    //       setIsEdit={setIsEdit}
+    //       setInputValue={setInputValue}
+    //     />
+    //   </Box>
+    // </Stack>
+
+    <Stack alignItems="center" justifyContent="center">
+      <Stack
+        position="relative"
         p={4}
+        h={height}
+        rounded="2xl"
+        justifyContent="center"
+        alignItems="center"
         w="full"
-        position="absolute"
-        zIndex={1}
-        spacing={6}
-        justify="center"
-        height={height}
       >
-        <Stack h="150px" mt="130px">
-          {isTitle && (
-            <Heading className="heading" {...headingStyle} mt="60px" onClick={handleEdit}>
-              {inputValue}
-            </Heading>
-          )}
+        <CloudinaryImage
+          h={height}
+          w="full"
+          pos="absolute"
+          objectFit="cover"
+          rounded="2xl"
+          zIndex={-2}
+          quality="good"
+          src={url}
+          filter={isEdit ? "brightness(20%)" : "brightness(50%)"}
+        />
 
-          {isEdit && (
-            <EditTitle
-              setIsTitle={setIsTitle}
-              isTitle={isTitle}
-              setIsEdit={setIsEdit}
-              setInputValue={setInputValue}
-            />
-          )}
+        <Stack
+          // minH="50px"
+          maxH="70px"
+          alignItems="center"
+          justifyContent="flex-start"
+          w="600px"
+        >
+          <Heading
+            color={isTitle ? "black" : "transparent"}
+            className="heading"
+            {...headingStyle}
+            onClick={handleEdit}
+          >
+            {inputValue}
+          </Heading>
         </Stack>
-        <SearchBar />
+        <Box>
+          <SearchBar />
+        </Box>
 
-        <Stack h="200px" justifyContent="flex-end" w="full">
+        <Stack justifyContent="flex-end" alignItems="flex-end" w="full" pos="absolute" mt="430px">
           <HeaderButtons ImageHandler={handleImage} />
         </Stack>
-      </VStack>
-    </Box>
+      </Stack>
+      <Box display={isEdit ? "block" : "none"} w="600px" pos="absolute" pb="10px">
+        <EditTitle
+          setIsTitle={setIsTitle}
+          isTitle={isTitle}
+          setIsEdit={setIsEdit}
+          setInputValue={setInputValue}
+        />
+      </Box>
+    </Stack>
   )
 }
 
@@ -77,7 +151,6 @@ const coverStyles: any = {
   height,
   width: "full",
   objectFit: "cover",
-  position: "absolute",
 }
 
 export default CatalogCover

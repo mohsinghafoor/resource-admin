@@ -53,7 +53,7 @@ const Data = [
 
 const CryptoList = ({ ...rest }: BoxProps) => {
   return (
-    <VStack align="flex-start" {...rest} w="full" h="560px" pt="30">
+    <VStack align="flex-start" {...rest} w="full" h="450px" pt="30">
       <Heading fontSize="28px" fontWeight="600" color="gray.900" p={4} className="heading">
         Crypto and software services
       </Heading>

@@ -64,12 +64,14 @@ const MarketplaceListCover = ({ ...rest }: any) => {
           )}
 
           {isEdit && (
-            <EditTitle
-              setIsTitle={setIsTitle}
-              isTitle={isTitle}
-              setIsEdit={setIsEdit}
-              setInputValue={setInputValue}
-            />
+            <Box mt="40px">
+              <EditTitle
+                setIsTitle={setIsTitle}
+                isTitle={isTitle}
+                setIsEdit={setIsEdit}
+                setInputValue={setInputValue}
+              />
+            </Box>
           )}
         </VStack>
         <HStack>

@@ -7,7 +7,7 @@ export const baseThumbnailStyles: BoxProps = {
 
 export const headingStyle: HeadingProps = {
   color: "white",
-  h: "70px",
+  // h: "70px",
   fontSize: "36px",
   textAlign: "center",
   alignSelf: "center",

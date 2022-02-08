@@ -16,6 +16,7 @@ import img4 from "../assets/cryptoimg4.png"
 import { AddListing } from "./catalog/AddListing"
 import { Thumbnail } from "./catalog/CardUi"
 import { useRecoilValue, useSetRecoilState } from "recoil"
+import { StatefulList } from "baseui/dnd-list"
 import {
   cardDataAtom,
   closeModalAtom,
@@ -81,7 +82,7 @@ const MarketplaceListPage = () => {
 
   useEffect(() => {
     if (getCardData && replaceCard === "") {
-      setCardData([...cardData, getCardData])
+      setCardData([getCardData, ...cardData])
       setCloseModal(true)
     } else if (getCardData && replaceCard >= "0") {
       cardData[parseInt(replaceCard)] = getCardData
@@ -111,6 +112,7 @@ const MarketplaceListPage = () => {
         <Container maxW="container.xl" p={0}>
           <SimpleGrid my="80px" mx="10px" columns={{ sm: 2, md: 3, lg: 4, xl: 5 }} spacing={3}>
             <AddListing />
+
             {cardData?.map((card, index) => (
               <Box key={index} onClick={() => handleClickCard(index)}>
                 <Thumbnail

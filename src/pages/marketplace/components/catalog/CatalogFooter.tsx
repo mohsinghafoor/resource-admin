@@ -27,54 +27,66 @@ const CatalogFooter = ({ catalog, ...rest }: any) => {
   }
 
   return (
-    <Box position="relative" p={4} rounded="2xl">
-      <CloudinaryImage
-        h={imageHeight}
-        w="full"
-        objectFit="cover"
+    <Stack alignItems="center" justifyContent="center">
+      <Stack
+        position="relative"
+        p={4}
+        h={height}
         rounded="2xl"
-        zIndex={-2}
-        quality="good"
-        src={url}
-        filter="brightness(50%)"
-      />
-      <VStack
-        position="absolute"
-        bottom="0px"
-        left="0px"
-        right="0px"
-        top="0px"
-        spacing={6}
-        justify="center"
-        p={8}
+        justifyContent="center"
+        alignItems="center"
+        w="full"
       >
-        <Stack h="150px">
-          {isTitle && (
-            <Heading className="heading" {...headingStyle} mt="60px" onClick={handleEdit}>
-              {inputValue}
-            </Heading>
-          )}
+        <CloudinaryImage
+          h={height}
+          w="full"
+          pos="absolute"
+          objectFit="cover"
+          rounded="2xl"
+          zIndex={-2}
+          quality="good"
+          src={url}
+          filter={isEdit ? "brightness(20%)" : "brightness(50%)"}
+        />
 
-          {isEdit && (
-            <EditTitle
-              setIsTitle={setIsTitle}
-              isTitle={isTitle}
-              setIsEdit={setIsEdit}
-              setInputValue={setInputValue}
-            />
-          )}
+        <Stack
+          // minH="50px"
+          maxH="70px"
+          alignItems="center"
+          justifyContent="flex-start"
+          w="600px"
+        >
+          <Heading
+            color={isTitle ? "black" : "transparent"}
+            className="heading"
+            {...headingStyle}
+            onClick={handleEdit}
+          >
+            {inputValue}
+          </Heading>
+          {/* {isEdit ? "block" : "none"} */}
         </Stack>
-
-        <SearchBar />
-        <Stack justifyContent="flex-end" alignItems="flex-end" w="full" h="100px">
+        <Box>
+          <SearchBar />
+        </Box>
+        {/* </VStack> */}
+        <Stack justifyContent="flex-end" alignItems="flex-end" w="full" pos="absolute" mt="330px">
           <HeaderButtons ImageHandler={handleImage} />
         </Stack>
-      </VStack>
-    </Box>
+      </Stack>
+      <Box display={isEdit ? "block" : "none"} w="600px" pos="absolute" pb="10px">
+        <EditTitle
+          setIsTitle={setIsTitle}
+          isTitle={isTitle}
+          setIsEdit={setIsEdit}
+          setInputValue={setInputValue}
+        />
+      </Box>
+    </Stack>
   )
 }
 
-const imageHeight = {
+const height = {
   base: "190px",
   md: "400px",
 }

@@ -16,7 +16,7 @@ const EditTitle = ({ setIsTitle, setIsEdit, setInputValue }: any) => {
     setInputValue(e.target.value)
   }
   return (
-    <VStack p="4" mt="30px" w="690px" alignSelf="center">
+    <VStack w="full">
       <Input {...inputStyles} onChange={handleChangeInput} />
       <HStack alignSelf="flex-end">
         <IconButton
@@ -44,12 +44,11 @@ const buttonStyles: ButtonProps = {
 }
 const inputStyles: InputProps = {
   borderRadius: "8px",
-  w: "658px",
+  w: "full",
   background: "#ffffff",
   h: "62px",
   fontSize: "28px",
   fontWeight: "600",
-
   border: " 6px solid transparent",
   _focus: { border: " 6px solid #699DFF" },
 }

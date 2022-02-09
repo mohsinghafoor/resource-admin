@@ -26,7 +26,7 @@ const CatalogFooter = ({ catalog, ...rest }: any) => {
   }
 
   return (
-    <Stack alignItems="center" justifyContent="center">
+    <Stack alignItems="center" justifyContent="center" mt="50px" px="5">
       <Stack
         position="relative"
         p={4}

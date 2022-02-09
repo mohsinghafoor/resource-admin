@@ -1,5 +1,5 @@
-import { Center, AspectRatio, Box, Heading, HStack, VStack } from "@chakra-ui/layout"
-import React from "react"
+import { Stack, AspectRatio, Box, Heading, HStack, VStack, Text } from "@chakra-ui/layout"
+import React, { useState } from "react"
 import { FaCalculator, FaMountain, FaPalette, FaUserTie } from "react-icons/fa"
 import bg1 from "../../assets/bg1.png"
 import bg2 from "../../assets/bg2.png"
@@ -8,7 +8,7 @@ import bg4 from "../../assets/bg2.png"
 import "./style.css"
 import CloudinaryImage from "../../../../components/CloudinaryImage"
 import { baseThumbnailStyles } from "./SharedStyles"
-
+import { StackProps } from "@chakra-ui/react"
 const Data = [
   { bgImg: bg1, icon: <FaPalette />, text: "Upgrade your brand" },
   { bgImg: bg2, icon: <FaCalculator />, text: "Manage your finances" },
@@ -35,6 +35,7 @@ const FourWideList = ({ ...rest }: any) => {
 }
 
 const Thumbnail = (props) => {
+  const [hover, setHover] = useState(false)
   const { bgImg, icon, text } = props
   return (
     <AspectRatio
@@ -46,8 +47,10 @@ const Thumbnail = (props) => {
       ratio={1}
       {...baseThumbnailStyles}
       to={`/list/edit`}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
-      <Center position="relative">
+      <VStack position="relative">
         <CloudinaryImage
           w="full"
           h="full"
@@ -60,18 +63,36 @@ const Thumbnail = (props) => {
           filter="brightness(80%)"
         />
         <VStack>
-          <Box fontSize="36px" color="white" mb="5">
+          <Box fontSize="36px" color="white" mb="1">
             {icon}
           </Box>
           <Heading color="white" size="header" textAlign="center">
             {text}
           </Heading>
-
-          {/* <Button className="link">Edit List</Button> */}
         </VStack>
-      </Center>
+        <Stack
+          className="editlist"
+          {...StackStyles}
+          color={hover ? "white" : "transparent"}
+          bg={hover ? "rgba(255, 255, 255, 0.15)" : "transparent"}
+        >
+          <Text>EDIT LIST</Text>
+        </Stack>
+      </VStack>
     </AspectRatio>
   )
 }
 
 export default React.memo(FourWideList)
+
+const StackStyles: StackProps = {
+  pos: "absolute",
+  w: "full",
+  px: "5",
+  h: "53px",
+  justifyContent: "center",
+  align: "flex-end",
+  fontWeight: "400",
+  fontSize: "14px",
+  fontFamily: "Poppins",
+}

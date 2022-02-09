@@ -4,35 +4,33 @@ import amm from "../../assets/ammount.png"
 import "./style.css"
 import { FaShare, FaRegHeart, FaTrash } from "react-icons/fa"
 import { addListStyles } from "./SharedStyles"
-import { useState } from "react"
-import { useLocation } from "react-router-dom"
+import { useEffect, useState } from "react"
+
 import { useRecoilValue, useSetRecoilState } from "recoil"
 import { removeListingAtom } from "../../../../store/listing"
-
+import { useLocation } from "react-router-dom"
 export const Thumbnail = (props) => {
   const { title, text, logo, img, ammount, index } = props
-
   const [remove, setRemove] = useState(false)
   const [hover, setHover] = useState(false)
-  const location = useLocation()
-  const [removedListing, setRemovedListing]: any = useState([])
   const setRemoveListing = useSetRecoilState(removeListingAtom)
   const removeListing = useRecoilValue(removeListingAtom)
-
+  useEffect(() => {
+    if (removeListing.state === false) setRemove(false)
+  }, [removeListing.state])
   const handleRemove = (e) => {
     e.stopPropagation()
-    setRemovedListing([...removedListing, index])
     setRemoveListing({
+      index: index,
       state: true,
-      index: [removedListing],
     })
     setRemove(true)
   }
-
+  const location = useLocation()
   return (
     <>
       <Flex
-        className="cursorpointer"
+        className="cursor"
         direction="column"
         w="full"
         opacity={remove ? "0.25" : "1"}
@@ -50,7 +48,6 @@ export const Thumbnail = (props) => {
             <Text fontSize="14px">{title}</Text>
           </HStack>
         </Stack>
-
         <Text fontSize="14px" mt="4" h="50px">
           {text}
         </Text>
@@ -75,7 +72,7 @@ export const Thumbnail = (props) => {
       </Flex>
       <HStack
         pos="absolute"
-        className="cursorpointer"
+        className="cursor"
         w="185px"
         h="97px"
         mt="-250px"
@@ -89,11 +86,9 @@ export const Thumbnail = (props) => {
         </Text>
       </HStack>
       <Button
-        display={location.pathname === "/list/edit" ? "block" : "none"}
-        className="cursor"
         pos="absolute"
         mt="-55px"
-        ml="30px"
+        ml="25px"
         leftIcon={<FaTrash />}
         bg="transparent"
         h="37px"
@@ -104,6 +99,7 @@ export const Thumbnail = (props) => {
         onClick={handleRemove}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
+        display={location.pathname === "/list/edit" ? "block" : "none"}
       >
         Remove from list
       </Button>

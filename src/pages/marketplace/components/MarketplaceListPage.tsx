@@ -24,7 +24,6 @@ import {
 } from "../../../store/listing"
 import { useEffect, useState } from "react"
 import EditlistModal from "./catalog/EditlistModal"
-
 const Data = [
   {
     logo: crypto1,
@@ -62,23 +61,19 @@ const Data = [
     ammount: "2,000.00",
   },
 ]
-
 const MarketplaceListPage = () => {
   const [cardData, setCardData]: any = useState(Data)
   const { id } = useParams<{ id: string }>()
   const { data, loading } = useFindMarketplaceListByIdQuery({ variables: { id } })
   const list = data?.findMarketplaceListById as MarketplaceList
-  const listings = list?.listings ?? []
   const shouldShowBackdrop = useBreakpointValue({ base: false, sm: true })
   const getCardData: any = useRecoilValue(cardDataAtom)
   const setReplaceCard: any = useSetRecoilState(replaceCardAtom)
   const replaceCard = useRecoilValue(replaceCardAtom)
   const setCloseModal = useSetRecoilState(closeModalAtom)
-  const closeModal = useRecoilValue(closeModalAtom)
   const setRemoveListing = useSetRecoilState(removeListingAtom)
   const removeListing = useRecoilValue(removeListingAtom)
   const { isOpen, onOpen, onClose } = useDisclosure()
-
   useEffect(() => {
     if (getCardData && replaceCard === "") {
       setCardData([getCardData, ...cardData])
@@ -89,14 +84,23 @@ const MarketplaceListPage = () => {
       onClose()
     }
   }, [getCardData])
-
+  useEffect(() => {
+    if (removeListing.index !== "") {
+      parseInt(removeListing.index)
+      setTimeout(() => {
+        setCardData(cardData.filter((card, index) => removeListing.index !== index))
+        setRemoveListing({
+          index: "",
+          state: false,
+        })
+      }, 2000)
+    }
+  }, [removeListing.index])
   const handleClickCard = (index) => {
     onOpen()
     setReplaceCard(index)
   }
-
   if (loading) return <SplashPage />
-
   return (
     <Box>
       <MarketplaceListCover list={list} />
@@ -104,7 +108,6 @@ const MarketplaceListPage = () => {
         <Container maxW="container.xl" p={0}>
           <SimpleGrid my="80px" mx="10px" columns={{ sm: 2, md: 3, lg: 4, xl: 5 }} spacing={3}>
             <AddListing />
-
             {cardData?.map((card, index) => (
               <Box key={index} onClick={() => handleClickCard(index)}>
                 <Thumbnail
@@ -125,5 +128,4 @@ const MarketplaceListPage = () => {
     </Box>
   )
 }
-
 export default MarketplaceListPage

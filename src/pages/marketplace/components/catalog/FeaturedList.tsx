@@ -1,11 +1,22 @@
 import { Badge, Box, Flex } from "@chakra-ui/layout"
 import { Heading } from "@chakra-ui/react"
+import { useState } from "react"
 import CloudinaryImage from "../../../../components/CloudinaryImage"
 import featured from "../../assets/featured.jpg"
 import IconPicker from "./IconPicker"
 const FeaturedList = ({ ...rest }: any) => {
+  const [hover, setHover] = useState(false)
   return (
-    <Box position="relative" {...rest} p={4} h={height} className="cursor" w="full">
+    <Box
+      position="relative"
+      {...rest}
+      p={4}
+      h={height}
+      className="cursor"
+      w="full"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
       <CloudinaryImage
         h={height}
         w="full"
@@ -26,7 +37,7 @@ const FeaturedList = ({ ...rest }: any) => {
         <IconPicker />
       </Box>
       <Flex
-        bg="none"
+        bg={hover ? "rgba(255, 255, 255, 0.15)" : "none"}
         mt="-70px"
         position="absolute"
         w="97.5%"
@@ -34,8 +45,7 @@ const FeaturedList = ({ ...rest }: any) => {
         px="5"
         alignItems="center"
         justifyContent="flex-end"
-        color="transparent"
-        _hover={{ bg: "rgba(255, 255, 255, 0.15)", color: "white" }}
+        color={hover ? "white" : "transparent"}
       >
         Edit list
       </Flex>

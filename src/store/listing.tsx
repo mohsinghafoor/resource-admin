@@ -1,7 +1,6 @@
 import { atom, selector } from "recoil"
 import { ListingType } from "../generated/graphql"
 import { FulfillmentType, type2FulfillmentMap } from "../pages/marketplace/utils/types"
-
 interface ListingQueryOptions {
   page: number
   pageSize: number
@@ -10,7 +9,6 @@ interface ListingQueryOptions {
   types: ListingType[]
   fulfillmentType: FulfillmentType
 }
-
 const defaultQueryOptions = {
   page: 1,
   pageSize: 24,
@@ -19,19 +17,16 @@ const defaultQueryOptions = {
   types: [],
   fulfillmentType: "Any",
 }
-
 export const listingAtom = atom({
   key: "listingAtom",
   default: {
     queryOptions: defaultQueryOptions as ListingQueryOptions,
   },
 })
-
 export const iconAtom = atom({
   key: "icomAtom",
   default: "fa fa-area-chart",
 })
-
 export const cardDataAtom = atom({
   key: "cardDataAtom",
   default: "",
@@ -44,15 +39,17 @@ export const closeModalAtom = atom({
   key: "closeModalAtom",
   default: false,
 })
-
 export const removeListingAtom = atom({
   key: "removeListingAtom",
   default: {
+    index: "",
     state: false,
-    index: [""],
   },
 })
-
+export const removeAtom = atom({
+  key: "removeListingAtom",
+  default: false,
+})
 export const listingQuerySelector = selector<ListingQueryOptions>({
   key: "listingQuerySelector",
   get: ({ get }) => get(listingAtom).queryOptions,
@@ -60,7 +57,6 @@ export const listingQuerySelector = selector<ListingQueryOptions>({
     set(listingAtom, (prevState) => ({ ...prevState, queryOptions: newValue } as any))
   },
 })
-
 export const fulfillmentTypesSelector = selector<FulfillmentType[]>({
   key: "fulfillmentTypesSelector",
   get: ({ get }) => {

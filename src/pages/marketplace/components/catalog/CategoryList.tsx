@@ -39,7 +39,7 @@ const Data = [
 
 const CategoryList = ({ ...rest }: BoxProps) => {
   return (
-    <VStack overflowX="visible" align="flex-start" {...rest} pl={5} py={4} w="full">
+    <VStack overflowX="visible" align="flex-start" {...rest} pl={5} py={4} w="full" mt="50">
       <Heading className="heading" fontSize="36px" color="gray.900" py={4}>
         Browse by category
       </Heading>
